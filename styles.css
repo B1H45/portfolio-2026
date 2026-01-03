@@ -162,6 +162,8 @@ nav::before {
     z-index: 9999;
 }
 
+/* HERO SECTION */
+
 .hero {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -170,8 +172,13 @@ nav::before {
 #ben {
     position: relative;
     left: -23.5rem;
-    bottom: -15rem;
+    top: -30rem;
     transform: rotate(-90deg);
+}
+
+#hustler {
+    position: relative;
+    top: -12rem;
 }
 
 .hero-left .big-text {
@@ -179,10 +186,23 @@ nav::before {
 }
 
 .hero-right {
-    outline: auto;
+    /* outline: auto; */
+    display: grid;
+    justify-content: right;
 }
 
 #profile-fig {
-    width: 40rem;
-    
+    margin-right: 6rem;
+    display: grid;
+    justify-content: end;
+}
+
+#profile-fig figcaption {
+    max-width: 30rem;
+}
+
+#profile-fig img {
+    width: 30rem;
+    height: 30rem;
+    object-fit: cover;
 }
