@@ -1,0 +1,5 @@
+path/to/large/file.zip !text !filter !merge !diff
+<imgs/aliens[[:space:]]*> filter=lfs diff=lfs merge=lfs -text
+<imgs/aliens/fullPlay.mp4> !text !filter !merge !diff
+<imgs/aliens/fullPlayFinal.mp4> !text !filter !merge !diff
+<imgs/aliens/fullPlayWin.mp4> !text !filter !merge !diff
