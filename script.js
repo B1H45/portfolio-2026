@@ -1,27 +1,30 @@
 let navLinks = document.querySelectorAll("nav ul li a");
 
-
-const follower = document.getElementById('follower');
 let mouseX = 0, mouseY = 0;
-let followerX = 0, followerY = 0;
 
 document.addEventListener('mousemove', (e) => {
   mouseX = e.clientX;
   mouseY = e.clientY;
 });
 
-animate();
+//FOLLOWER ANIMATION!!!
 
-function animate() {
-  // Smooth interpolation (lerp)
-  followerX += (mouseX - followerX) * .1;
-  followerY += (mouseY - followerY) * .1;
+// const follower = document.getElementById('follower');
+
+// let followerX = 0, followerY = 0;
+
+// animate();
+
+// function animate() {
+//   // Smooth interpolation (lerp)
+//   followerX += (mouseX - followerX) * .1;
+//   followerY += (mouseY - followerY) * .1;
   
-  follower.style.left = followerX + 'px';
-  follower.style.top = followerY + 'px';
+//   follower.style.left = followerX + 'px';
+//   follower.style.top = followerY + 'px';
   
-  requestAnimationFrame(animate);
-}
+//   requestAnimationFrame(animate);
+// }
 
 //WASH ANIMATIONS!!!
 
@@ -84,8 +87,7 @@ waInstances.forEach(
             instance.children[0].style.left = `calc((${xOffset + rect.width/2}px - ${instanceColoringSize/2}rem))`;
             instance.children[0].style.top = `calc((${yOffset + rect.height/2}px - ${instanceColoringSize/2}rem))`;
 
-            follower.style.transform = "translate(-50%, -50%) scale(0.1)";
-            follower.style.transition = "transform .5s ease-out";
+            // follower.style.transform = "translate(-50%, -50%) scale(0.1)";
 
             instanceColoring.offsetHeight;
 
@@ -103,7 +105,7 @@ waInstances.forEach(
             instance.children[0].style.left = `calc((${xOffset + rect.width/2}px - ${instanceColoringSize/2}rem))`;
             instance.children[0].style.top = `calc((${yOffset + rect.height/2}px - ${instanceColoringSize/2}rem))`;
 
-            follower.style.transform = "translate(-50%, -50%)";
+            // follower.style.transform = "translate(-50%, -50%)";
         });
     }
 );

@@ -106,7 +106,7 @@ nav::before {
     border: var(--dark) 1px solid;    
     transform: translateY(-50%);
     pointer-events: none;
-    z-index: 1;
+    z-index: 0;
 }
 
 /* WASH ANIMATIONS */
@@ -137,7 +137,7 @@ nav::before {
     mix-blend-mode: difference;
 }
 
-/* .washAnimate::before {
+.washAnimate::before {
     content: attr(data-label);
     position: absolute;
     top: 1rem;
@@ -147,7 +147,7 @@ nav::before {
     mix-blend-mode: darken;
     z-index: 4;
     color: var(--primary);
-} */
+}
 
 .disableTransition {
     transition: none;
@@ -157,9 +157,11 @@ nav::before {
     position: fixed;
     width: 30px;
     height: 30px;
-    background: #101010;
+    background: var(--dark);
     border-radius: 50%;
     pointer-events: none; /* So it doesn't interfere with mouse events */
     transform: translate(-50%, -50%); /* Centers the circle on cursor */
     transition: transform 0.1s ease-out; /* Smooth following */
+    z-index: 9999;
 }
+
