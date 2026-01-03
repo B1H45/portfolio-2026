@@ -89,7 +89,8 @@ nav {
     position: fixed;
     top: 2rem;
     z-index: 100;
-    width: calc(100% - 4rem);
+    width: calc(100vw - 4rem);
+    padding-right: 2rem;
     max-width: 2500px;
 }
 
