@@ -57,12 +57,13 @@ h1 {
     display: flex;
     flex-direction: column;
     padding-top: 10rem;
+    align-items: center;
 }
 
 .main-content {
-    /* max-width: 1920px; */
+    max-width: 2500px;
     padding: 2rem;
-    flex-grow: 1;
+    /* flex-grow: 1; */
 }
 
 /* NAV STUFF */
@@ -88,17 +89,19 @@ nav {
     position: fixed;
     top: 2rem;
     z-index: 100;
-    width: calc(100% - 4rem);
+    width: calc(100vw - 4rem);
+    padding-right: 2rem;
+    max-width: 2500px;
 }
 
 nav::before {
     content: "";
     position: absolute;
-    left: 0;
+    left: -100vw;
     right: 0;
     top: 50%;
     height: 10px;
-    width: 95%;
+    width: 200vw;
     background: var(--light);
     border: var(--dark) 1px solid;    
     transform: translateY(-50%);
@@ -167,10 +170,12 @@ nav::before {
 .hero {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 5rem;
 }
 
 .hero-left .big-text {
-    max-width: 38rem;
+    /* max-width: 38rem; */
+    margin-right: 10rem;
 }
 
 .hero-right {
@@ -183,20 +188,81 @@ nav::before {
     position: relative;
     width: 100%;
     height: auto;
+    top: -60%;
+    pointer-events: none;
 }
 
 #profile-fig {
+    position: relative;
     margin-right: 6rem;
     display: grid;
-    justify-content: end;
+    left: 27%;
+    width: 60%;
+    transition: transform 0.3s ease;
 }
 
 #profile-fig figcaption {
-    max-width: 30rem;
+    /* max-width: 30rem; */
+    margin-bottom: .5rem;
 }
 
 #profile-fig img {
-    width: 30rem;
-    height: 30rem;
+    width: 100%;
     object-fit: cover;
+    aspect-ratio: 1 / 1;
+}
+
+/* #profile-fig div a {
+    position: relative;
+    bottom: 15rem;
+    color: var(--light)
+} */
+
+#profile-fig a {
+    display: flex;
+    column-gap: .5rem;
+    text-transform: uppercase;
+    font-family: monospace;
+    letter-spacing: -.08rem;
+    word-spacing: -.2rem;
+    align-items: end;
+    justify-items: space-between;
+}
+
+#cappf {
+    position: relative;
+}
+
+#cappf:before {
+    position: absolute;
+    content: "// Project: UX/Interaction Design";
+    color: rgba(0, 0, 0, 0);
+    width: 0%;
+    height: 100%;
+    left: 0;
+    background-color: var(--light);
+    z-index: -1;
+    transition: width 0.3s ease;
+}
+
+#profile-fig a span:last-child {
+    flex-shrink: 0;
+
+}
+
+#profile-fig:hover {
+    transform: scale(1.02);
+}
+
+#profile-fig:hover #cappf::before {
+    width: 100%;
+    /* background-color: var(--light) */
+}
+
+/* HERO LEFT */
+
+.hero-left {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
