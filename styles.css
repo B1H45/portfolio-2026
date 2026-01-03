@@ -169,26 +169,20 @@ nav::before {
     grid-template-columns: 1fr 1fr;
 }
 
-#ben {
-    position: relative;
-    left: -23.5rem;
-    top: -30rem;
-    transform: rotate(-90deg);
-}
-
-#hustler {
-    position: relative;
-    top: -12rem;
-}
-
 .hero-left .big-text {
     max-width: 38rem;
 }
 
 .hero-right {
-    /* outline: auto; */
+    /* outline: auto;ss */
     display: grid;
     justify-content: right;
+}
+
+#ben-hustler {
+    position: relative;
+    width: 100%;
+    height: auto;
 }
 
 #profile-fig {
