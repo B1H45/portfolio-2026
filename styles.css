@@ -52,10 +52,6 @@ h1 {
     font-size: 2rem;
 }
 
-.hero-left .big-text {
-    max-width: 38rem;
-}
-
 .main {
     background-color: var(--primary);
     display: flex;
@@ -102,6 +98,7 @@ nav::before {
     right: 0;
     top: 50%;
     height: 10px;
+    width: 95%;
     background: var(--light);
     border: var(--dark) 1px solid;    
     transform: translateY(-50%);
@@ -165,3 +162,27 @@ nav::before {
     z-index: 9999;
 }
 
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#ben {
+    position: relative;
+    left: -23.5rem;
+    bottom: -15rem;
+    transform: rotate(-90deg);
+}
+
+.hero-left .big-text {
+    max-width: 38rem;
+}
+
+.hero-right {
+    outline: auto;
+}
+
+#profile-fig {
+    width: 40rem;
+    
+}
