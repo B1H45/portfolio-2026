@@ -13,8 +13,13 @@ const params = new URLSearchParams(window.location.search);
 const target = params.get("for");
 let greeter = document.querySelector("#greeter");
 
+if (target) {
+    sessionStorage.setItem("audience", target);
+}
 
-customizeSite(target);
+let audience = sessionStorage.getItem("audience");
+
+customizeSite(audience);
 
 function customizeSite(target) {
     
