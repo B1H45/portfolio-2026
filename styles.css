@@ -175,14 +175,16 @@ nav::before {
 }
 
 .hero-left .big-text {
-    /* max-width: 38rem; */
-    margin-right: 10rem;
+    max-width: 50rem;
+    margin-right: 5rem;
 }
 
 .hero-right {
     /* outline: auto;ss */
     display: grid;
     justify-content: right;
+    height: 100%;
+    position: relative;
 }
 
 #ben-hustler {
@@ -267,4 +269,9 @@ nav::before {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    justify-content: space-between;
+}
+
+.hero-left a {
+    justify-self: flex-end;
 }
