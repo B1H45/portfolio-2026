@@ -7,6 +7,36 @@ document.addEventListener('mousemove', (e) => {
   mouseY = e.clientY;
 });
 
+// QUERY PARAMS
+
+const params = new URLSearchParams(window.location.search);
+const target = params.get("for");
+let greeter = document.querySelector("#greeter");
+
+
+customizeSite(target);
+
+function customizeSite(target) {
+    
+    let name;
+
+    switch(target) {
+        case "mrla":
+            name = "Motorola";
+            break;
+        case "ea":
+            name = "Electronic Arts";
+            break;
+        case "mike":
+            name = "Mike";
+            break;
+        default:
+            break;
+    }
+
+    console.log(`Customizing site for: ${name || "general audience"}`);
+    greeter.textContent = `Hey ${name || "there"}!`;
+}
 //FOLLOWER ANIMATION!!!
 
 // const follower = document.getElementById('follower');
