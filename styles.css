@@ -211,7 +211,7 @@ nav::before {
     align-self: end;
 }
 
-#profile-fig img {
+.profile-img {
     width: 100%;
     object-fit: cover;
     aspect-ratio: 1 / 1;
@@ -225,13 +225,17 @@ nav::before {
 
 #profile-fig a {
     display: flex;
-    column-gap: .5rem;
+    column-gap: .8rem;
     text-transform: uppercase;
-    font-family: monospace;
-    letter-spacing: -.08rem;
+    /* font-family: monospace; */
     word-spacing: -.2rem;
     align-items: end;
     justify-items: space-between;
+}
+
+#profile-fig a .down-arrow {
+    transform: translate(0, .2rem);
+    height: auto;
 }
 
 #cappf {
@@ -241,7 +245,7 @@ nav::before {
 
 #cappf:before {
     position: absolute;
-    content: "// Project: UX/Interaction Design";
+    content: "UX/Interaction design: check it out!";
     color: rgba(0, 0, 0, 0);
     width: 0%;
     height: 100%;
@@ -253,7 +257,6 @@ nav::before {
 
 #profile-fig a span:last-child {
     flex-shrink: 0;
-
 }
 
 #profile-fig:hover {
@@ -288,8 +291,8 @@ nav::before {
     color: var(--light);
 }
 
-.hero-left a img {
-    width: 2rem;
+.down-arrow {
+    width: 1.5rem;
     height: auto;
     align-self: center;
 }
