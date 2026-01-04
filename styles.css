@@ -25,17 +25,22 @@
 
 :root {
     --dark: #000000; /* Replace with your desired dark color */
-    --light: #ffffff; /* Replace with your desired light color */
-    --primary: #73ffc7; /* Original greenish color */
+    --light: #cfe9e1; /* Replace with your desired light color */
+    --primary: #73ffa9; /* Original greenish color */
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    min-width: 0;
 }
 
-a, p {
+a, p, figcaption {
     text-decoration: none;
     font-family: 'GT Walsheim Trial U Md', serif;
     font-size: 1.25rem;
@@ -54,11 +59,13 @@ h1 {
 
 .main {
     background: url("imgs/background.png");
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
     display: flex;
     flex-direction: column;
-    padding-top: 10rem;
     align-items: center;
+    padding-top: 11rem;
+    padding-bottom: 7rem;
+    box-shadow: 0rem 1rem 5rem rgb(0, 0, 0);
 }
 
 .main-content {
@@ -79,7 +86,8 @@ nav a {
     display: block;
     border: var(--dark) 1px solid;
     background-color: var(--light);
-    padding: 1rem 3rem;
+    padding: .9rem 4rem;
+    background-blend-mode: overlay;
 }
 
 nav li {
@@ -90,7 +98,7 @@ nav {
     position: fixed;
     top: 2rem;
     z-index: 100;
-    width: calc(100vw - 4rem);
+    width: calc(100vw - 2rem);
     padding-right: 2rem;
     max-width: 2500px;
 }
@@ -98,11 +106,11 @@ nav {
 nav::before {
     content: "";
     position: absolute;
-    left: -100vw;
+    left: 0;
     right: 0;
     top: 50%;
     height: 10px;
-    width: 200vw;
+    width: calc(100% - 8rem);
     background: var(--light);
     border: var(--dark) 1px solid;    
     transform: translateY(-50%);
@@ -141,8 +149,8 @@ nav::before {
 .washAnimate::before {
     content: attr(data-label);
     position: absolute;
-    top: 1rem;
-    left: 3rem;
+    /* top: 1rem; */
+    /* left: 3rem; */
     width: 100%;
     height: 100%;
     mix-blend-mode: darken;
@@ -226,15 +234,14 @@ nav::before {
 #profile-fig a {
     display: flex;
     column-gap: .8rem;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     /* font-family: monospace; */
-    word-spacing: -.2rem;
     align-items: end;
     justify-items: space-between;
 }
 
 #profile-fig a .down-arrow {
-    transform: translate(0, .2rem);
+    transform: translate(0, .3rem);
     height: auto;
 }
 
@@ -284,11 +291,11 @@ nav::before {
     width: fit-content;
     align-items: center;
     transition: transform 0.3s ease, color 0.3s ease;
+    position: relative;
 }
 
 .hero-left a:hover {
     transform: scale(1.02);
-    color: var(--light);
 }
 
 .down-arrow {
@@ -299,4 +306,63 @@ nav::before {
 
 .hero-left p {
     margin-bottom: 2rem;
+}
+
+.lineWipe:before {
+    position: absolute;
+    content: "UX/Interaction design: check it out!";
+    color: rgba(0, 0, 0, 0);
+    width: 0%;
+    height: 100%;
+    left: 0;
+    background-color: var(--light);
+    z-index: -1;
+    transition: width 0.3s ease;
+}
+
+.lineWipe:hover::before {
+    width: 100%;
+}
+
+/* PROJECTS SECTION */
+
+#spacer {
+    height: calc(100vh - 4rem);
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4%;
+    max-width: 2500px;
+    padding: 10rem 0rem 5rem 2rem;
+}
+
+.projects-main {
+    background: url("imgs/dark-background.png");
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    width: 100%
+}
+
+
+
+.project-thumbnail {
+    height: auto;
+}
+
+.project-thumbnail img {
+    width: 100%;
+    height: auto;
+    /* box-shadow: 0rem 1rem 3rem rgb(0, 0, 0); */
+}
+
+.project-thumbnail figcaption {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: var(--light)
 }

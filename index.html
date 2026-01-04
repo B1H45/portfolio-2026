@@ -6,37 +6,73 @@
     <title>Ben Hustler - UX Designer</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="main">
-    <div class="main-content">
-        <header>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
-        <section class="hero">
-            <div class="hero-left">
-                <p id="greeter" class="big-text">Hey there!</p>
-                <p class="big-text">You've found a UX Designer who combines solid design process with a sharp knack for technology.</p>
-                <p class="big-text">I'm excited to connect and build something great!</p>
-                <a class="big-text" href="#projects"><span>Let's look at some projects</span><img class="down-arrow" src="imgs/down-arrowhead.svg" alt="down-arrow"></a>
-            </div>
+<body>
+    <div class="main" id="main">
+        <div class="main-content">
+            <header>
+                <nav>
+                    <ul>
+                        <li><a href="#main">Home</a></li>
+                        <li><a href="#spacer">Projects</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <section class="hero">
+                <div class="hero-left">
+                    <p id="greeter" class="big-text">Hey there!</p>
+                    <p class="big-text">You've found a UX Designer who combines solid design process with a sharp knack for technology.</p>
+                    <p class="big-text">I'm excited to connect and build something great!</p>
+                    <a class="big-text lineWipe" href="#spacer"><span>Let's look at some projects</span><img class="down-arrow" src="imgs/down-arrowhead.svg" alt="down-arrow"></a>
+                </div>
+                <div class="hero-right">
+                    <figure id="profile-fig">
+                        <figcaption><a href="index.html" id="cappf"><span>Project: UX/Interaction Design - Check it out!</span><span><img class="down-arrow" src="imgs/go-to-arrow2.svg"></span></a></figcaption>
+                        <a href="index.html"><img class="profile-img" src="imgs/fs1.png" alt="Profile Picture"></a>
+                    </figure>
+                    <img id="ben-hustler" src="imgs/BH.svg" alt="The words Ben Hustler">
+                </div>
+            </section>
+        </div>
+    </div>
 
-            <div class="hero-right">
-                <figure id="profile-fig">
-                    <figcaption><a href="index.html" id="cappf"><span>UX/Interaction design: check it out</span><span><img class="down-arrow" src="imgs/go-to-arrow.svg"></span></a></figcaption>
-                    <a href="index.html"><img class="profile-img" src="imgs/fs1.png" alt="Profile Picture"></a>
+    <div id="spacer">
+
+    </div>
+
+
+    <div class="projects-main">
+        <section class="projects" id="projects">
+            <div class="project-thumbnail">
+                <figure>
+                    <figcaption><span>Project: UX/Interaction Design</span></figcaption>
+                    <img src="imgs/fs1.png"></img>
                 </figure>
-
-                <img id="ben-hustler" src="imgs/BH.svg" alt="The words Ben Hustler">
             </div>
-
+        
+            <div class="project-thumbnail">
+                <figure>
+                    <figcaption><span>Project: UX/Interaction Design</span></figcaption>
+                    <img src="imgs/fs1.png"></img>
+                </figure>
+            </div>
+            <div class="project-thumbnail">
+                <figure>
+                    <figcaption><span>Project: UX/Interaction Design</span></figcaption>
+                    <img src="imgs/fs1.png"></img>
+                </figure>
+            </div>
+            <div class="project-thumbnail">
+                <figure>
+                    <figcaption><span>Project: UX/Interaction Design</span></figcaption>
+                    <img src="imgs/fs1.png"></img>
+                </figure>
+            </div>
         </section>
     </div>
+    
+
     <!-- <div id="follower"></div> -->
 
     <script src="script.js"></script>

@@ -1,3 +1,5 @@
+// GENERAL
+
 let navLinks = document.querySelectorAll("nav ul li a");
 
 let mouseX = 0, mouseY = 0;
@@ -26,7 +28,7 @@ function customizeSite(target) {
     let name;
 
     switch(target) {
-        case "mrla":
+        case "msi":
             name = "Motorola";
             break;
         case "ea":
