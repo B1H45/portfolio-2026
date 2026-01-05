@@ -59,13 +59,15 @@ h1 {
 
 .main {
     background: url("imgs/background.png");
-    /* background-attachment: fixed; */
+    background-attachment: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 11rem;
     padding-bottom: 7rem;
     box-shadow: 0rem 1rem 5rem rgb(0, 0, 0);
+    transition: top 0.3s ease;
+    width: 100vw;
 }
 
 .main-content {
@@ -327,32 +329,27 @@ nav::before {
 /* PROJECTS SECTION */
 
 #spacer {
-    height: calc(100vh - 4rem);
+    /* height: calc(100vh - 4rem); */
+    height: calc(100vh);
 }
 
 .projects {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4%;
+    gap: 4rem;
     max-width: 2500px;
-    padding: 10rem 0rem 5rem 2rem;
+    padding: 13rem 0rem 5rem 2rem;
 }
 
 .projects-main {
-    background: url("imgs/dark-background.png");
+    background: url("imgs/light-background.png");
     display: flex;
     flex-direction: column;
     align-items: center;
     position: fixed;
     z-index: -1;
-    top: 0;
+    top: 10rem;
     width: 100%
-}
-
-
-
-.project-thumbnail {
-    height: auto;
 }
 
 .project-thumbnail img {
