@@ -1,50 +1,50 @@
 // SCROLL PUSH AWAY EFFECT
 
-let mainHeight;
-const main = document.querySelector('.main');
-const projectsMain = document.querySelector('.projects-main');
-const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+// let mainHeight;
+// const main = document.querySelector('.main');
+// const projectsMain = document.querySelector('.projects-main');
+// const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
 
-// Wait for everything to load
-window.addEventListener('load', () => {
-  setTimeout(() => {
-        mainHeight = main ? main.getBoundingClientRect().height : 0;
-  }, 100);
-});
+// // Wait for everything to load
+// window.addEventListener('load', () => {
+//   setTimeout(() => {
+//         mainHeight = main ? main.getBoundingClientRect().height : 0;
+//   }, 100);
+// });
 
-window.addEventListener('resize', () => {
-    setTimeout(() => {
-        mainHeight = main ? main.getBoundingClientRect().height : 0;
-    }, 100);
-});
+// window.addEventListener('resize', () => {
+//     setTimeout(() => {
+//         mainHeight = main ? main.getBoundingClientRect().height : 0;
+//     }, 100);
+// });
 
-window.addEventListener('scroll', () => {
-  if (!main) return;
+// window.addEventListener('scroll', () => {
+//   if (!main) return;
   
-  const scrolled = window.scrollY;
+//   const scrolled = window.scrollY;
   
-  // Only transform while scrolled distance is less than main height
-  if (scrolled < mainHeight - 3.5*rootFontSize) { // 4rem in px
-    // main.style.transform = `translateY(-${scrolled}px)`;
-    projectsMain.style.position = 'fixed';
-    main.style.position = 'relative';
-    main.style.top = ""; // 4rem in px
-    projectsMain.style.top = `4rem`;
+//   // Only transform while scrolled distance is less than main height
+//   if (scrolled < mainHeight - 3.5*rootFontSize) { // 4rem in px
+//     // main.style.transform = `translateY(-${scrolled}px)`;
+//     projectsMain.style.position = 'fixed';
+//     main.style.position = 'relative';
+//     main.style.top = ""; // 4rem in px
+//     projectsMain.style.top = `4rem`;
 
 
-  } else {
-    // Once past main, remove transform and let it scroll normally
-    // main.style.transform = 'none';
-    projectsMain.style.position = 'relative';
-    main.style.position = 'fixed';
-    // main.style.top = `-${mainHeight + 2*rootFontSize}px`;
+//   } else {
+//     // Once past main, remove transform and let it scroll normally
+//     // main.style.transform = 'none';
+//     projectsMain.style.position = 'relative';
+//     main.style.position = 'fixed';
+//     // main.style.top = `-${mainHeight + 2*rootFontSize}px`;
 
-    // main.offsetHeight;
-    projectsMain.style.top = `7rem`;
-    console.log(`mainHeight: ${mainHeight}px`);
-    main.style.top = `calc(-${mainHeight}px + 3.5rem)`;
-  }
-});
+//     // main.offsetHeight;
+//     projectsMain.style.top = `7rem`;
+//     console.log(`mainHeight: ${mainHeight}px`);
+//     main.style.top = `calc(-${mainHeight}px + 3.5rem)`;
+//   }
+// });
 
 // GENERAL
 
