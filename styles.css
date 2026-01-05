@@ -27,6 +27,7 @@
     --dark: #000000; /* Replace with your desired dark color */
     --light: #cfe9e1; /* Replace with your desired light color */
     --primary: #73ffa9; /* Original greenish color */
+    --max-width: 2100px;
 }
 
 html {
@@ -40,11 +41,16 @@ html {
     min-width: 0;
 }
 
-a, p, figcaption {
+a, p {
     text-decoration: none;
     font-family: 'GT Walsheim Trial U Md', serif;
     font-size: 1.25rem;
     color: var(--dark);
+}
+
+figcaption * {
+    font-family: monospace;
+    font-size: 1.25rem;
 }
 
 h1 {
@@ -63,7 +69,7 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 10rem;
+    padding-top: 13rem;
     padding-bottom: 7rem;
     box-shadow: 0rem 1rem 5rem rgba(0, 0, 0, 0.5);
     transition: top 0.3s ease;
@@ -71,7 +77,7 @@ h1 {
 }
 
 .main-content {
-    max-width: 2500px;
+    max-width: var(--max-width);
     padding: 2rem;
     /* flex-grow: 1; */
 }
@@ -102,7 +108,7 @@ nav {
     z-index: 100;
     width: calc(100vw - 2rem);
     padding-right: 2rem;
-    max-width: 2500px;
+    max-width: var(--max-width);
 }
 
 nav::before {
@@ -211,8 +217,9 @@ nav::before {
     margin-right: 6rem;
     display: grid;
     left: 27%;
-    width: 60%;
-    transition: transform 0.3s ease;
+    width: 58%;
+    transition: transform 0.3s ease , filter 0.3s ease;
+    filter: saturate(0);
 }
 
 #profile-fig figcaption {
@@ -270,6 +277,7 @@ nav::before {
 
 #profile-fig:hover {
     transform: scale(1.02);
+    filter: saturate(1);
 }
 
 #profile-fig:hover #cappf::before {
@@ -284,6 +292,7 @@ nav::before {
     flex-direction: column;
     gap: 1rem;
     /* justify-content: space-between; */
+    position: relative;
 }
 
 .hero-left a {
@@ -293,7 +302,8 @@ nav::before {
     width: fit-content;
     align-items: center;
     transition: transform 0.3s ease, color 0.3s ease;
-    position: relative;
+    position: absolute;
+    bottom: 0;
 }
 
 .hero-left a:hover {
@@ -310,20 +320,30 @@ nav::before {
     margin-bottom: 2rem;
 }
 
+
 .lineWipe:before {
     position: absolute;
-    content: "UX/Interaction design: check it out!";
+    content: ".";
     color: rgba(0, 0, 0, 0);
     width: 0%;
     height: 100%;
     left: 0;
     background-color: var(--light);
-    z-index: -1;
+    z-index: 1;
     transition: width 0.3s ease;
 }
 
 .lineWipe:hover::before {
     width: 100%;
+}
+
+.lineWipe * {
+    z-index: 2;
+}
+
+.lineWipe {
+    position: relative;
+    overflow: hidden;
 }
 
 /* PROJECTS SECTION */
@@ -334,24 +354,23 @@ nav::before {
 }
 
 .projects {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
     gap: 4rem;
-    max-width: 2500px;
-    padding: 13rem 0rem 5rem 2rem;
+    max-width: var(--max-width);
+    padding: 10% 2rem 5rem 2rem;
 }
 
 .projects-main {
-    background: url("imgs/dark-background2.png");
+    background: url("imgs/background-lighter.png");
     background-attachment: fixed;
     background-size: cover;
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: fixed;
     z-index: -1;
     top: 10rem;
-    width: 100%
+    width: 100%;
 }
 
 .project-thumbnail img {
@@ -359,10 +378,55 @@ nav::before {
     height: auto;
     border: var(--dark) .12rem solid;
     /* box-shadow: 0rem 1rem 3rem rgb(0, 0, 0); */
+    aspect-ratio: 1920 / 1080;
+    object-fit: cover;
+    object-position: bottom;
+}
+
+.project-thumbnail figure > a::before {
+  box-shadow: inset 0 0 2rem .1rem #00000069;
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.project-thumbnail a {
+    /* color: var(--light) */
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    align-items: center;
+    /* font-size: 1.5rem; */
+    position: relative;
+}
+
+.project-thumbnail {
+    transition: transform 0.3s ease , filter 0.3s ease;
+    flex-basis: calc(50% - 2rem);
+    flex-shrink: 0;
+    min-width: 40rem;
+    flex-grow: 1;
+    filter: saturate(0);
 }
 
 .project-thumbnail figcaption {
-    margin-bottom: 1rem;
-    font-size: 2rem;
-    color: var(--light)
+    margin: 1rem 0;
+}
+
+.project-thumbnail:hover .lineWipe::before {
+    width: 100%;
+}
+
+.project-thumbnail:hover {
+    transform: scale(1.02);
+    filter: saturate(1);
+}
+
+.project-thumbnail span:last-child {
+    font-style: italic;
+    font-size: 1rem;
 }
