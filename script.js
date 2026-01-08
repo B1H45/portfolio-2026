@@ -143,7 +143,7 @@ waInstances.forEach(
         instance.append(instanceContent);
         instance.setAttribute("data-label", instance.textContent);
 
-        let instanceColoringSize = 15; //rem
+        let instanceColoringSize = instanceColoring.getBoundingClientRect().width / parseFloat(getComputedStyle(document.documentElement).fontSize); //rem
 
         instanceColoring.style.width = `${instanceColoringSize}rem`;
         instanceColoring.style.height = `${instanceColoringSize}rem`;
@@ -160,8 +160,8 @@ waInstances.forEach(
 
         instance.addEventListener("mouseenter", () => {
             rect = instance.getBoundingClientRect();
-            let xOffset = Math.cos(Math.atan2(posY, posX))*300;
-            let yOffset = Math.sin(Math.atan2(posY, posX))*300;
+            let xOffset = Math.cos(Math.atan2(posY, posX))*instanceColoringSize*16;
+            let yOffset = Math.sin(Math.atan2(posY, posX))*instanceColoringSize*16;
 
             if (instance.id == "clear") {
                 console.log(`xOffset: ${xOffset}, yOffset: ${yOffset}`);
@@ -184,8 +184,8 @@ waInstances.forEach(
 
         instance.addEventListener("mouseleave", () => {
             rect = instance.getBoundingClientRect();
-            let xOffset = Math.cos(Math.atan2(posY, posX))*300;
-            let yOffset = Math.sin(Math.atan2(posY, posX))*300;
+            let xOffset = Math.cos(Math.atan2(posY, posX))*instanceColoringSize*16;
+            let yOffset = Math.sin(Math.atan2(posY, posX))*instanceColoringSize*16;
 
             instance.children[0].style.left = `calc((${xOffset + rect.width/2}px - ${instanceColoringSize/2}rem))`;
             instance.children[0].style.top = `calc((${yOffset + rect.height/2}px - ${instanceColoringSize/2}rem))`;
