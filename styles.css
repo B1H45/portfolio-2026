@@ -27,8 +27,8 @@
 
 :root {
     --dark: #000000; /* Replace with your desired dark color */
-    --light: #cfe9e1; /* Replace with your desired light color */
-    --primary: #73ffa9; /* Original greenish color */
+    --light: #d7d7d7; /* Replace with your desired light color */
+    --primary: #FF5F5F; /* Original greenish color */
     --max-width: 2100px;
 }
 
@@ -47,7 +47,7 @@ a, p {
     text-decoration: none;
     font-family: 'GT Walsheim Trial U Md', serif;
     font-size: 1.25rem;
-    color: var(--dark);
+    color: var(--light);
 }
 
 figcaption * {
@@ -72,7 +72,7 @@ h1 {
 }
 
 .main {
-    background: url("imgs/background-lighter.png");
+    background: url("imgs/black-background.png");
     background-attachment: fixed;
     display: flex;
     flex-direction: column;
@@ -82,6 +82,7 @@ h1 {
     box-shadow: 0rem 1rem 5rem rgba(0, 0, 0, 0.5);
     transition: top 0.3s ease;
     width: 100vw;
+    overflow: hidden;
 }
 
 .main-content {
@@ -100,10 +101,11 @@ nav ul {
 
 nav a {
     display: block;
-    border: var(--dark) .12rem solid;    
+    border: none;
     background-color: var(--light);
     padding: .9rem 4rem;
     background-blend-mode: overlay;
+    border-radius: 50px;
 }
 
 nav li {
@@ -128,10 +130,17 @@ nav::before {
     height: .3rem;
     width: calc(100% - 8rem);
     background: var(--light);
-    border: var(--dark) .12rem solid;    
+    border: none;
     transform: translateY(-50%);
     pointer-events: none;
     z-index: 0;
+    border-radius: 50px;
+}
+
+.largeButton.washAnimate {
+    background-color: var(--light);
+    border-radius: 3rem;
+    padding: 1rem 3rem;
 }
 
 /* WASH ANIMATIONS */
@@ -140,6 +149,13 @@ nav::before {
   position: relative;
   cursor: pointer;
   overflow: hidden;
+}
+
+.largeButton.washAnimate .instanceColoring {
+    top: 10rem;
+    left: 10rem;
+    width: 30rem;
+    height: 30rem;
 }
 
 .instanceColoring {
@@ -151,15 +167,15 @@ nav::before {
   transition: left 0.5s ease, top 0.5s ease;
   transform: rotate(0);
   z-index: 1;
-  background-color: var(--dark);
+  background-color: var(--primary);
   border-radius: 100%;
 }
 
 .instanceContent {
     position: relative;
     z-index: 3;
-    color: var(--light);
-    mix-blend-mode: difference;
+    color: var(--dark);
+    /* mix-blend-mode: difference; */
 }
 
 /* .washAnimate::before {
@@ -216,6 +232,17 @@ nav::before {
     height: auto;
     bottom: 0%;
     pointer-events: none;
+    filter: drop-shadow(0 0 0 var(--primary));
+}
+
+#lines1 {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    right: -63%;
+    bottom: -10%;
+    pointer-events: none;
+    z-index: 0;
 }
 
 #profile-fig {
@@ -225,7 +252,7 @@ nav::before {
     left: 27%;
     width: 58%;
     transition: transform 0.3s ease , filter 0.3s ease;
-    filter: saturate(0);
+    /* filter: saturate(0); */
 }
 
 #profile-fig figcaption {
@@ -258,6 +285,7 @@ nav::before {
 #profile-fig a .down-arrow {
     transform: translate(0, .3rem);
     height: auto;
+    filter: invert(1);
 }
 
 #cappf {
@@ -275,6 +303,17 @@ nav::before {
     background-color: var(--light);
     z-index: -1;
     transition: width 0.3s ease;
+}
+
+#profile-fig > a::before {
+  box-shadow: inset 0 0 1rem .1rem #ffffff1f;
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  z-index: 10;
 }
 
 #profile-fig a span:last-child {
@@ -297,7 +336,7 @@ nav::before {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     position: relative;
 }
 
@@ -308,7 +347,7 @@ nav::before {
     width: fit-content;
     align-items: center;
     transition: transform 0.3s ease, color 0.3s ease;
-    position: absolute;
+    /* position: absolute; */
     bottom: 0;
 }
 
@@ -352,6 +391,10 @@ nav::before {
     overflow: hidden;
 }
 
+.lineWipe a, .lineWipe button, .lineWipe span, .lineWipe img {
+    mix-blend-mode: difference;
+}
+
 .lineWipe.button:before {
     background-color: var(--light);
     z-index: 1;
@@ -364,7 +407,7 @@ nav::before {
     width: 100%;
     height: 100%;
     left: 0;
-    background-color: var(--dark);
+    background-color: var(--light);
     z-index: 0;
     transition: width 0.3s ease;
 }
@@ -391,10 +434,12 @@ nav::before {
     max-width: var(--max-width);
     padding: 10% 2rem 5rem 2rem;
     align-items: end;
+    position: relative;
+    overflow: hidden;
 }
 
 .projects-main {
-    background: url("imgs/background-lighter.png");
+    background: url("imgs/black-background.png");
     background-attachment: fixed;
     background-size: cover;
     display: flex;
@@ -408,15 +453,14 @@ nav::before {
 .project-thumbnail img {
     width: 100%;
     height: auto;
-    border: var(--dark) .12rem solid;
-    /* box-shadow: 0rem 1rem 3rem rgb(0, 0, 0); */
+    /* border: var(--light) .12rem solid; */
     aspect-ratio: 1920 / 1080;
     object-fit: cover;
     object-position: bottom;
 }
 
 .project-thumbnail figure > a::before {
-  box-shadow: inset 0 0 2rem .1rem #00000069;
+  box-shadow: inset 0 0 1rem .1rem #ffffff1f;
   content: '';
   display: block;
   height: 100%;
@@ -444,7 +488,7 @@ nav::before {
     flex-shrink: 0;
     min-width: 32rem;
     flex-grow: 1;
-    filter: saturate(0);
+    /* filter: saturate(0); */
 }
 
 .project-thumbnail figcaption {
