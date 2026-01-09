@@ -7,7 +7,9 @@ imageSelect.forEach(
         item.addEventListener("click", () => {
             imageSelect.forEach(
                 (otherItem) => {
-                    otherItem.classList.remove("active");
+                    if (item.parentElement.getAttribute("for") === otherItem.parentElement.getAttribute("for")) {
+                        otherItem.classList.remove("active");
+                    }
                 }
             );
             item.classList.add("active");

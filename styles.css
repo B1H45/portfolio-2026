@@ -534,7 +534,6 @@ h1 {
     grid-template-columns: 1fr 1fr;
     column-gap: 3rem;
     /* align-items: start; */
-    margin-bottom: 1rem;
 }
 
 .subheading, h2 {
@@ -573,15 +572,28 @@ h1 {
 
 .bottom-align {
     align-items: end;
+    margin-bottom: 1rem;
 }
 
-.stack-1200 {
-    @media (width < 80rem) {
+.left-align {
+    justify-content: start !important;
+}
+
+.stack-1 {
+    @media (width < 109rem) {
         grid-template-columns: 1fr !important;
         justify-items: start !important;
         row-gap: 1rem !important;
     }
 }
+.stack-2 {
+    @media (width < 85rem) {
+        grid-template-columns: 1fr !important;
+        justify-items: start !important;
+        row-gap: 1rem !important;
+    }
+}
+
 
 .main.project-pages {
     padding-top: 10rem;
@@ -595,12 +607,14 @@ ul {
     display: flex;
     flex-direction: row;
     gap: 1rem;
+    column-gap: 2rem;
     flex-wrap: wrap;
     list-style: none;
 }
 
 ul.image-select {
     justify-content: end;
+    margin-top: 1rem;
 }
 
 /* ul.image-select li::before {
@@ -610,6 +624,7 @@ ul.image-select {
 
 ul.image-select li svg {
     margin-right: 1rem;
+    transition: width 0.2s ease, margin 0.2s ease;
 }
 
 ul.image-select li:hover, ul.image-select li.active {
@@ -619,6 +634,16 @@ ul.image-select li:hover, ul.image-select li.active {
 ul.image-select li:hover *{
     color: var(--light);
     fill: var(--light);
+}
+
+ul.image-select li svg {
+    width: 0;
+    margin: 0;
+}
+
+ul.image-select li.active svg {
+    width: 14px;
+    margin: 1rem;
 }
 
  ul.image-select li.active * {
@@ -657,10 +682,63 @@ img.lock-ratio {
 }
 
 .two-column h2, .two-column p {
-    max-width: 40rem;
+    max-width: 42rem;
 }
 
 .pdf-link {
     text-decoration: underline;
     max-width: fit-content;
+}
+
+.middle-double {
+    padding: 0 calc(25% - 19rem);
+    align-content: start;
+}
+
+.middle-double .body-copy {
+    max-width: 30rem;
+}
+
+.stack-3 {
+    @media (width < 63rem) {
+        grid-template-columns: 1fr !important;
+        justify-items: start !important;
+        row-gap: 1rem !important;
+    }
+}
+
+.revStack.stack-3 div:last-child{
+    @media (width < 63rem) {
+        order: -1;
+    }
+}
+
+.revStack.stack-2 > div:last-child{
+    @media (width < 85rem) {
+        order: -1;
+    }
+}
+
+.middle-double img {
+    width: 100%;
+    height: auto;
+    max-width: 50rem;
+}
+
+.four-one {
+    grid-template-columns: 3fr 1fr;
+}
+
+.flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.flex-wrap > * {
+    flex: 1 1 30rem;
+}
+
+#maxwidth17 button{
+    max-width: 17rem;
 }
