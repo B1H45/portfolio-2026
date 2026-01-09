@@ -3,32 +3,37 @@
 @font-face {
     font-family: 'Lemon Milk';
     src: url('fonts/lemon_milk/LEMONMILK-Medium.otf') format('opentype');
-    font-weight: medium;
+    font-weight: 500;
 }
 @font-face {
     font-family: 'Lemon Milk';
     src: url('fonts/lemon_milk/LEMONMILK-Bold.otf') format('opentype');
-    font-weight: bold;
+    font-weight: 600;
 }
 
 @font-face {
-    font-family: 'GT Walsheim Trial U Rg';
+    font-family: 'GT Walsheim Trial U';
     font-style: normal;
-    font-weight: normal;
+    font-weight: 400;
     src: local('GT-Walsheim Trial U Rg'), url('fonts/gt-walsheim-trial-webfont/GT-Walsheim-Regular-Trial-BF651b7fc71a47d.woff') format('woff');
 }
 
 @font-face {
-    font-family: 'GT Walsheim Trial U Md';
+    font-family: 'GT Walsheim Trial U';
     font-style: normal;
-    font-weight: normal;
+    font-weight: 500;
     src: local('GT-Walsheim Trial U Md'), url('fonts/gt-walsheim-trial-webfont/GT-Walsheim-Medium-Trial-BF651b7fc728fb3.woff') format('woff');
+}
+
+body {
+    background-color: var(--dark);
 }
 
 :root {
     --dark: #000000; /* Replace with your desired dark color */
     --light: #d7d7d7; /* Replace with your desired light color */
     --primary: #FF5F5F; /* Original greenish color */
+    --grey: #7F7F7F;
     --max-width: 2100px;
 }
 
@@ -43,9 +48,9 @@ html {
     min-width: 0;
 }
 
-a, p {
+a, p, li {
     text-decoration: none;
-    font-family: 'GT Walsheim Trial U Md', serif;
+    font-family: 'GT Walsheim Trial U', serif;
     font-size: 1.25rem;
     color: var(--light);
 }
@@ -59,12 +64,6 @@ figcaption * {
 
     font-size: 1.25rem;
     /* font-weight: 600; */
-}
-
-h1 {
-    font-family: 'Lemon Milk', serif;
-    font-weight: 400;
-    font-size: 13rem;
 }
 
 .big-text {
@@ -97,6 +96,8 @@ nav ul {
     display: flex;
     list-style-type: none;
     justify-content: space-between;
+    gap: 0rem;
+    flex-direction: row;
 }
 
 nav a {
@@ -143,6 +144,10 @@ nav::before {
     padding: 1rem 3rem;
 }
 
+.largeButton {
+    max-width: fit-content;
+}
+
 /* WASH ANIMATIONS */
 
 .washAnimate {
@@ -154,16 +159,16 @@ nav::before {
 .largeButton.washAnimate .instanceColoring {
     top: 10rem;
     left: 10rem;
-    width: 30rem;
-    height: 30rem;
+    width: 25rem;
+    height: 25rem;
 }
 
 .instanceColoring {
   position: absolute;
   top: 10rem;
   left: 10rem;
-  width: 15rem;
-  height: 15rem;
+  width: 13rem;
+  height: 13rem;
   transition: left 0.5s ease, top 0.5s ease;
   transform: rotate(0);
   z-index: 1;
@@ -243,6 +248,7 @@ nav::before {
     bottom: -10%;
     pointer-events: none;
     z-index: 0;
+    transition: transform 0.1s ease-out;
 }
 
 #profile-fig {
@@ -279,7 +285,7 @@ nav::before {
     /* text-transform: uppercase; */
     /* font-family: monospace; */
     align-items: end;
-    justify-items: space-between;
+    /* justify-items: space-between; */
 }
 
 #profile-fig a .down-arrow {
@@ -384,6 +390,7 @@ nav::before {
 
 .lineWipe * {
     z-index: 2;
+    position: relative;
 }
 
 .lineWipe {
@@ -507,4 +514,153 @@ nav::before {
 .project-thumbnail span:last-child {
     font-style: italic;
     font-size: 1rem;
+}
+
+
+
+/* PROJECT PAGES */
+
+h1 {
+    font-family: 'Lemon Milk', serif;
+    font-weight: 400;
+    font-size: 4.5rem;
+    color: var(--primary);
+    line-height: 5.1rem;
+    max-width: 50rem;
+}
+
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 3rem;
+    /* align-items: start; */
+    margin-bottom: 1rem;
+}
+
+.subheading, h2 {
+    font-family: 'Lemon Milk', serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    color: var(--light);
+    max-width: 45rem;
+    margin-bottom: 2rem;
+}
+
+.v-space-between {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+    height: 100%;
+}
+
+.body-copy p {
+    font-size: 1.125rem;
+    max-width: 45rem;
+}
+
+.body-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.two-column img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.bottom-align {
+    align-items: end;
+}
+
+.stack-1200 {
+    @media (width < 80rem) {
+        grid-template-columns: 1fr !important;
+        justify-items: start !important;
+        row-gap: 1rem !important;
+    }
+}
+
+.main.project-pages {
+    padding-top: 10rem;
+}
+
+.one_four {
+    grid-template-columns: 1fr 3fr;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+ul.image-select {
+    justify-content: end;
+}
+
+/* ul.image-select li::before {
+    content: url("imgs/bullet.svg");
+    margin-right: 1rem;
+} */
+
+ul.image-select li svg {
+    margin-right: 1rem;
+}
+
+ul.image-select li:hover, ul.image-select li.active {
+    transform: scale(1.05);
+}
+
+ul.image-select li:hover *{
+    color: var(--light);
+    fill: var(--light);
+}
+
+ ul.image-select li.active * {
+    color: var(--primary);
+    fill: var(--primary);
+ }
+
+ul.image-select li {
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+ul.image-select button {
+    background: none;
+    border: none;
+    color: var(--grey);
+    font-family: monospace;
+    font-size: 1.25rem;
+    text-align: left;
+    max-width: 16rem;
+    cursor: pointer;
+}
+
+.h-space-between {
+    display: flex;
+    align-items: end;
+}
+
+section {
+    margin-bottom: 8vw;
+}
+
+img.lock-ratio {
+    height: auto;
+}
+
+.two-column h2, .two-column p {
+    max-width: 40rem;
+}
+
+.pdf-link {
+    text-decoration: underline;
+    max-width: fit-content;
 }

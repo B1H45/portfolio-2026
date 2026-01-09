@@ -1,3 +1,22 @@
+// IMAGE SELECTORS
+
+let imageSelect = document.querySelectorAll("ul.image-select li");
+
+imageSelect.forEach(
+    (item) => {
+        item.addEventListener("click", () => {
+            imageSelect.forEach(
+                (otherItem) => {
+                    otherItem.classList.remove("active");
+                }
+            );
+            item.classList.add("active");
+            let targetImg = document.querySelector("#" +item.parentElement.getAttribute("for"));
+            targetImg.src = item.getAttribute("img-src");
+        });
+    }
+);
+
 // SCROLL PUSH AWAY EFFECT
 
 // let mainHeight;
@@ -90,6 +109,8 @@ function customizeSite(target) {
     }
 
     console.log(`Customizing site for: ${name || "general audience"}`);
+
+    if (!greeter) return;
     greeter.textContent = `Hey ${name || "there"}!`;
 }
 //FOLLOWER ANIMATION!!!
@@ -194,3 +215,16 @@ waInstances.forEach(
         });
     }
 );
+
+// LINES1 SCROLL ANIMATION
+const lines1 = document.getElementById('lines1');
+const main = document.querySelector('.main');
+
+window.addEventListener('scroll', () => {
+  if (!main || !lines1) return;
+  
+  const scrolled = window.scrollY;
+  const moveDistance = scrolled * 0.5; // Adjust multiplier for speed
+  
+  lines1.style.transform = `translateX(${moveDistance}px)`;
+});
