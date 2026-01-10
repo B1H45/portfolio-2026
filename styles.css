@@ -48,11 +48,17 @@ html {
     min-width: 0;
 }
 
-a, p, li {
+a, p, li, button {
     text-decoration: none;
     font-family: 'GT Walsheim Trial U', serif;
     font-size: 1.25rem;
     color: var(--light);
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 figcaption * {
@@ -142,6 +148,11 @@ nav::before {
     background-color: var(--light);
     border-radius: 3rem;
     padding: 1rem 3rem;
+    transition: transform 0.3s ease;
+}
+
+.largeButton.washAnimate:hover {
+    transform: scale(1.02);
 }
 
 .largeButton {
@@ -271,6 +282,7 @@ nav::before {
     width: 100%;
     object-fit: cover;
     aspect-ratio: 1 / 1;
+    object-position: left;
 }
 
 /* #profile-fig div a {
@@ -529,6 +541,15 @@ h1 {
     max-width: 50rem;
 }
 
+.big-h2 {
+    font-family: 'Lemon Milk', serif;
+    font-weight: 400;
+    font-size: 4.5rem;
+    color: var(--light);
+    line-height: 5.1rem;
+    max-width: 50rem;
+}
+
 .two-column {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -556,6 +577,11 @@ h1 {
 .body-copy p {
     font-size: 1.125rem;
     max-width: 45rem;
+}
+
+p.body-copy2 {
+    font-size: 1.125rem;
+    max-width: 55rem;
 }
 
 .body-copy {
@@ -614,7 +640,7 @@ ul {
 
 ul.image-select {
     justify-content: end;
-    margin-top: 1rem;
+    margin: 1rem 0rem;
 }
 
 /* ul.image-select li::before {
@@ -653,7 +679,7 @@ ul.image-select li.active svg {
 
 ul.image-select li {
     display: flex;
-    align-items: center;
+    align-items: start;
     transition: transform 0.3s ease;
 }
 
@@ -666,6 +692,7 @@ ul.image-select button {
     text-align: left;
     max-width: 16rem;
     cursor: pointer;
+
 }
 
 .h-space-between {
@@ -675,6 +702,14 @@ ul.image-select button {
 
 section {
     margin-bottom: 8vw;
+}
+
+.section {
+    margin-bottom: 6vw;
+}
+
+.section-less {
+    margin-bottom: 4vw;
 }
 
 img.lock-ratio {
@@ -697,6 +732,11 @@ img.lock-ratio {
 
 .middle-double .body-copy {
     max-width: 30rem;
+}
+
+.full {
+    max-width: max-content !important;
+    width: 100%;
 }
 
 .stack-3 {
@@ -722,7 +762,7 @@ img.lock-ratio {
 .middle-double img {
     width: 100%;
     height: auto;
-    max-width: 50rem;
+    max-width: 45rem;
 }
 
 .four-one {
@@ -732,7 +772,7 @@ img.lock-ratio {
 .flex-wrap {
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
+    column-gap: 2rem;
 }
 
 .flex-wrap > * {
@@ -741,4 +781,46 @@ img.lock-ratio {
 
 #maxwidth17 button{
     max-width: 17rem;
+}
+
+.static-gallery img {
+    min-width: 22rem;
+    max-width: calc(50% - 1rem);
+    flex-basis: 10px;
+    flex-shrink: 1;
+    flex-grow: 1;
+    object-fit: cover;
+    outline: 1px solid var(--grey);
+}
+
+.static-gallery {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.closed {
+  position: relative;
+  pointer-events: none;
+}
+
+.closed::before {
+  content: 'Under Construction';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--primary);
+  color: #000;
+  padding: 20px 40px;
+  font-family: monospace;
+  font-size: 1.25rem;
+  border-radius: 2rem;
+  z-index: 1000;
+  white-space: nowrap;
+}
+
+.closed * {
+  filter: grayscale(100%);
+  opacity: 0.5;
 }
