@@ -85,10 +85,12 @@ const target = params.get("for");
 let greeter = document.querySelector("#greeter");
 
 if (target) {
+    console.log(target);
     sessionStorage.setItem("audience", target);
 }
 
 let audience = sessionStorage.getItem("audience");
+let projectsOrdering = [0, 1, 2, 3, 4, 5];
 
 customizeSite(audience);
 
@@ -99,12 +101,14 @@ function customizeSite(target) {
     switch(target) {
         case "msi":
             name = "Motorola";
+            projectsOrdering = [0, 1, 2, 3, 4, 5];
             break;
         case "ea":
             name = "Electronic Arts";
             break;
         case "mike":
             name = "Mike";
+            projectsOrdering = [5, 4, 3, 2, 1, 0]
             break;
         default:
             break;
@@ -115,6 +119,58 @@ function customizeSite(target) {
     if (!greeter) return;
     greeter.textContent = `Hey ${name || "there"}!`;
 }
+
+// THUMBNAIL ORDERING + SUGGESTED THUMBNAIL
+
+// Get the parent container of all thumbnails
+let container;
+if (document.querySelector('.project-thumbnail')) {
+    container = document.querySelector('.project-thumbnail').parentElement;
+
+    // Get all thumbnails
+    const thumbnails = Array.from(document.querySelectorAll('.project-thumbnail'));
+
+    let thumbnailsSorted = [...thumbnails];
+
+    // Sort: non-closed first, then closed
+    projectsOrdering.sort((a, b) => {
+    const aIsClosed = thumbnails[a].classList.contains('closed');
+    const bIsClosed = thumbnails[b].classList.contains('closed');
+    
+    if (aIsClosed && !bIsClosed) return 1;  // a goes after b
+    if (!aIsClosed && bIsClosed) return -1; // a goes before b
+    return 0; // keep original order
+    });
+
+    for (i = 0; i < projectsOrdering.length; i ++) {
+        thumbnailsSorted[i] = thumbnails[projectsOrdering[i]];
+    }
+
+    // Re-append in sorted order
+    thumbnailsSorted.forEach(thumbnail => {
+    container.appendChild(thumbnail);
+    });
+}
+
+const profileImg = document.querySelector("#profile-img");
+const profileDesc = document.querySelector("#cappf");
+const profileFig = document.querySelector("#profile-fig");
+
+if (profileImg && profileDesc) {
+    const profthumbnails = ["imgs/fs1.png", "imgs/moa.png", "imgs/petAdop.png", "imgs/kt.png", "imgs/alienAttack.png", "imgs/posters.png"];
+    const profDescriptions = ["UX design", "Experience design", "UI design", "Motion graphics", "Graphical programming", "Graphic design"];
+    const profAligns = ["left", "right", "left", "left", "left", "left"];
+    const profLinks = ["idk", "moaDesign.html", "left", "left", "left", "left"];
+
+    profileImg.setAttribute("src", profthumbnails[projectsOrdering[0]]);
+    profileDesc.firstChild.textContent = profDescriptions[projectsOrdering[0]] + " project - check it out!";
+    profileImg.style["object-position"] = profAligns[projectsOrdering[0]];
+
+    profileFig.children[0].children[0].setAttribute("href", profLinks[projectsOrdering[0]]);
+    profileFig.children[1].setAttribute("href", profLinks[projectsOrdering[0]]);
+}
+
+
 //FOLLOWER ANIMATION!!!
 
 // const follower = document.getElementById('follower');
