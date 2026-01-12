@@ -1,3 +1,54 @@
+// QUERY PARAMS
+
+const params = new URLSearchParams(window.location.search);
+const target = params.get("for");
+let greeter = document.querySelector("#greeter");
+let logline = document.querySelector("#logline");
+
+if (target) {
+    console.log(target);
+    sessionStorage.setItem("audience", target);
+}
+
+let audience = sessionStorage.getItem("audience");
+let projectsOrdering = [0, 1, 2, 3, 4, 5];
+
+customizeSite(audience);
+
+function customizeSite(target) {
+    
+    let name;
+    let message;
+
+    switch(target) {
+        case "msi":
+            name = "Motorola";
+            projectsOrdering = [0, 1, 2, 3, 4, 5];
+            break;
+        case "ea":
+            name = "Electronic Arts";
+            break;
+        case "mike":
+            name = "Mike";
+            projectsOrdering = [5, 4, 3, 2, 1, 0]
+            break;
+        case "ilm":
+            name = "ILM";
+            message = "You've found a software engineer with a passion for 3D and proficiency in creating human-centered UI/UX experiences."
+            projectsOrdering = [4, 2, 3, 0, 1, 5]
+        default:
+            break;
+    }
+
+    console.log(`Customizing site for: ${name || "general audience"}`);
+
+    if (!greeter) return;
+    greeter.textContent = `Hey ${name || "there"}!`;
+    if (!message || !logline) return;
+    logline.textContent = message;
+}
+
+
 // IMAGE SELECTORS
 
 let imageSelect = document.querySelectorAll("ul.image-select li");
@@ -77,48 +128,6 @@ document.addEventListener('mousemove', (e) => {
   mouseX = e.clientX;
   mouseY = e.clientY;
 });
-
-// QUERY PARAMS
-
-const params = new URLSearchParams(window.location.search);
-const target = params.get("for");
-let greeter = document.querySelector("#greeter");
-
-if (target) {
-    console.log(target);
-    sessionStorage.setItem("audience", target);
-}
-
-let audience = sessionStorage.getItem("audience");
-let projectsOrdering = [0, 1, 2, 3, 4, 5];
-
-customizeSite(audience);
-
-function customizeSite(target) {
-    
-    let name;
-
-    switch(target) {
-        case "msi":
-            name = "Motorola";
-            projectsOrdering = [0, 1, 2, 3, 4, 5];
-            break;
-        case "ea":
-            name = "Electronic Arts";
-            break;
-        case "mike":
-            name = "Mike";
-            projectsOrdering = [5, 4, 3, 2, 1, 0]
-            break;
-        default:
-            break;
-    }
-
-    console.log(`Customizing site for: ${name || "general audience"}`);
-
-    if (!greeter) return;
-    greeter.textContent = `Hey ${name || "there"}!`;
-}
 
 // THUMBNAIL ORDERING + SUGGESTED THUMBNAIL
 

@@ -32,7 +32,9 @@ body {
 :root {
     --dark: #000000; /* Replace with your desired dark color */
     --light: #d7d7d7; /* Replace with your desired light color */
-    --primary: #FF5F5F; /* Original greenish color */
+    --primary: rgb(75, 181, 150); /* Original greenish color */
+    --secondary: rgb(27, 62, 52); /* Original greenish color */
+
     --grey: #7F7F7F;
     --max-width: 2100px;
 }
@@ -251,7 +253,18 @@ nav::before {
     filter: drop-shadow(0 0 0 var(--primary));
 }
 
+#ben-hustler {
+    fill: var(--primary);
+    position: absolute;
+    width: 100%;
+    height: auto;
+    bottom: 0%;
+    pointer-events: none;
+    filter: drop-shadow(0 0 0 var(--primary));
+}
+
 #lines1 {
+    fill: var(--secondary);
     position: absolute;
     width: 100%;
     height: auto;
@@ -650,7 +663,9 @@ ul.image-select {
 
 ul.image-select li svg {
     margin-right: 1rem;
-    transition: width 0.2s ease, margin 0.2s ease;
+    transition: width 0.2s ease, margin 0.2s ease, color 0.3s ease, fill 0.3s ease;
+    width: 0;
+    margin: 0;
 }
 
 ul.image-select li:hover, ul.image-select li.active {
@@ -660,11 +675,6 @@ ul.image-select li:hover, ul.image-select li.active {
 ul.image-select li:hover *{
     color: var(--light);
     fill: var(--light);
-}
-
-ul.image-select li svg {
-    width: 0;
-    margin: 0;
 }
 
 ul.image-select li.active svg {
@@ -680,7 +690,7 @@ ul.image-select li.active svg {
 ul.image-select li {
     display: flex;
     align-items: start;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease
 }
 
 ul.image-select button {
@@ -701,11 +711,11 @@ ul.image-select button {
 }
 
 section {
-    margin-bottom: 8vw;
+    margin-bottom: clamp(6rem, 8vw, 100rem);
 }
 
 .section {
-    margin-bottom: 6vw;
+    margin-bottom: 5vw;
 }
 
 .section-less {
@@ -822,5 +832,5 @@ img.lock-ratio {
 
 .closed * {
   filter: grayscale(100%);
-  opacity: 0.5;
+  opacity: 0.7;
 }

@@ -1,14 +1,14 @@
-<svg width="843" height="703" viewBox="0 0 843 703" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="18.5117" y="703" width="18.5122" height="483" transform="rotate(-180 18.5117 703)" fill="#652323"/>
-<rect x="51.6094" y="703" width="18.5122" height="483" transform="rotate(-180 51.6094 703)" fill="#652323"/>
-<rect x="84.707" y="703" width="18.5122" height="483" transform="rotate(-180 84.707 703)" fill="#652323"/>
-<rect x="117.805" y="703" width="18.5122" height="483" transform="rotate(-180 117.805 703)" fill="#652323"/>
-<rect x="150.902" y="703" width="18.5122" height="483" transform="rotate(-180 150.902 703)" fill="#652323"/>
-<rect x="184" y="703" width="18.5122" height="483" transform="rotate(-180 184 703)" fill="#652323"/>
-<rect x="843" y="165.488" width="18.5122" height="799" transform="rotate(90 843 165.488)" fill="#652323"/>
-<rect x="843" y="132.39" width="18.5122" height="799" transform="rotate(90 843 132.39)" fill="#652323"/>
-<rect x="843" y="99.2927" width="18.5122" height="799" transform="rotate(90 843 99.2927)" fill="#652323"/>
-<rect x="843" y="66.1951" width="18.5122" height="799" transform="rotate(90 843 66.1951)" fill="#652323"/>
-<rect x="843" y="33.0977" width="18.5122" height="799" transform="rotate(90 843 33.0977)" fill="#652323"/>
-<rect x="843" width="18.5122" height="799" transform="rotate(90 843 0)" fill="#652323"/>
+<svg width="843" height="703" viewBox="0 0 843 703" fill="#652323" xmlns="http://www.w3.org/2000/svg">
+<rect x="18.5117" y="703" width="18.5122" height="483" transform="rotate(-180 18.5117 703)"/>
+<rect x="51.6094" y="703" width="18.5122" height="483" transform="rotate(-180 51.6094 703)"/>
+<rect x="84.707" y="703" width="18.5122" height="483" transform="rotate(-180 84.707 703)"/>
+<rect x="117.805" y="703" width="18.5122" height="483" transform="rotate(-180 117.805 703)"/>
+<rect x="150.902" y="703" width="18.5122" height="483" transform="rotate(-180 150.902 703)"/>
+<rect x="184" y="703" width="18.5122" height="483" transform="rotate(-180 184 703)"/>
+<rect x="843" y="165.488" width="18.5122" height="799" transform="rotate(90 843 165.488)"/>
+<rect x="843" y="132.39" width="18.5122" height="799" transform="rotate(90 843 132.39)"/>
+<rect x="843" y="99.2927" width="18.5122" height="799" transform="rotate(90 843 99.2927)"/>
+<rect x="843" y="66.1951" width="18.5122" height="799" transform="rotate(90 843 66.1951)"/>
+<rect x="843" y="33.0977" width="18.5122" height="799" transform="rotate(90 843 33.0977)"/>
+<rect x="843" width="18.5122" height="799" transform="rotate(90 843 0)"/>
 </svg>
