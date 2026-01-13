@@ -37,6 +37,7 @@ function customizeSite(target) {
             message = "You've found a software engineer with a passion for 3D and proficiency in creating human-centered UI/UX experiences."
             projectsOrdering = [4, 2, 3, 0, 1, 5]
         default:
+            projectsOrdering = [4, 2, 3, 0, 1, 5]
             break;
     }
 
