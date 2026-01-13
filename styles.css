@@ -32,7 +32,7 @@ body {
 :root {
     --dark: #000000; /* Replace with your desired dark color */
     --light: #d7d7d7; /* Replace with your desired light color */
-    --primary: rgb(75, 181, 150); /* Original greenish color */
+    --primary: #4bb596; /* Original greenish color */
     --secondary: rgb(27, 62, 52); /* Original greenish color */
 
     --grey: #7F7F7F;
@@ -189,6 +189,10 @@ nav::before {
   border-radius: 100%;
 }
 
+.relative {
+    position: relative;
+}
+
 .instanceContent {
     position: relative;
     z-index: 3;
@@ -273,6 +277,48 @@ nav::before {
     pointer-events: none;
     z-index: 0;
     transition: transform 0.1s ease-out;
+}
+
+*:has(.linesGraphic) {
+    position: relative;
+    z-index: -1;
+}
+
+.linesGraphic {
+    fill: var(--secondary);
+    z-index: 0;
+    position: absolute;
+}
+
+.linesGraphic ~ * {
+    position: relative;
+    z-index: 3;
+}
+
+#lines2 {
+    pointer-events: none;
+    bottom: 20%;
+    right: 20%;
+    /* transform: translate(-80%, -80%); */
+}
+
+#lines3 {
+    left: 40%;
+    width: 100%;
+    top: -10%;
+}
+
+#lines4 {
+    right: 50%;
+    top: 50%;
+}
+#lines5 {
+    right: 80%;
+    top: 50%;
+}
+
+#lines6 {
+    left: 100%;
 }
 
 #profile-fig {
@@ -833,4 +879,11 @@ img.lock-ratio {
 .closed * {
   filter: grayscale(100%);
   opacity: 0.7;
+}
+
+.anchorButton {
+    height: 100%;
+    display: block;
+    overflow: hidden;
+    margin: 3rem 0rem;
 }
