@@ -887,3 +887,9 @@ img.lock-ratio {
     overflow: hidden;
     margin: 3rem 0rem;
 }
+
+.quote {
+    font-style: italic;
+    opacity: 0.8;
+    margin: .5rem 0rem;
+}
