@@ -170,7 +170,7 @@ if (profileImg && profileDesc) {
     const profthumbnails = ["imgs/fs1.png", "imgs/moa.png", "imgs/petAdop.png", "imgs/kt.png", "imgs/alienAttack.png", "imgs/posters.png"];
     const profDescriptions = ["UX design", "Experience design", "UI design", "Motion graphics", "Graphical programming", "Graphic design"];
     const profAligns = ["left", "right", "left", "left", "left", "left"];
-    const profLinks = ["idk", "moaDesign.html", "left", "left", "left", "left"];
+    const profLinks = ["fuorisalone.html", "moaDesign.html", "left", "left", "left", "left"];
 
     profileImg.setAttribute("src", profthumbnails[projectsOrdering[0]]);
     profileDesc.firstChild.textContent = profDescriptions[projectsOrdering[0]] + " project - check it out!";
@@ -295,4 +295,15 @@ window.addEventListener('scroll', () => {
   const moveDistance = scrolled * 0.5; // Adjust multiplier for speed
   
   lines1.style.transform = `translateX(${moveDistance}px)`;
+});
+
+
+// SLIDEY LINES
+
+const mainLine = document.querySelector('#slidey-text-line');
+
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  const focusOffset = window.scrollY - mainLine.getBoundingClientRect().height;
+  console.log(`focusOffset: ${focusOffset}px`);
 });
