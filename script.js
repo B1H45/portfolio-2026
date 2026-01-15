@@ -301,9 +301,26 @@ window.addEventListener('scroll', () => {
 // SLIDEY LINES
 
 const mainLine = document.querySelector('#slidey-text-line');
+const otherLines = document.querySelectorAll('.slidey-line');
 
 window.addEventListener('scroll', () => {
-  const scrolled = window.scrollY;
-  const focusOffset = window.scrollY - mainLine.getBoundingClientRect().height;
-  console.log(`focusOffset: ${focusOffset}px`);
+    const scrolled = window.scrollY;
+    const focusOffset = window.innerHeight/2 - mainLine.getBoundingClientRect().top - mainLine.getBoundingClientRect().height / 2;
+    console.log(`focusOffset: ${Math.pow(focusOffset, 3/2)}px`);
+
+    console.log(Math.round(Math.log2(focusOffset)));
+    // mainLine.style.transform = `translateX(calc(28rem + ${Math.pow(focusOffset, 3)/200000}px))`;
+
+    otherLines.forEach(
+        (line, index) => {
+            let direction = (index % 2 === 0) ? -1 : 1;
+            line.style.transform = `translateX(calc(${direction * 28}rem + ${direction * Math.sign(focusOffset) * Math.pow(Math.abs(focusOffset), 3/2)/40}px))`;
+        }
+    );
+});
+
+window.addEventListener('load', () => {
+  setTimeout(() => {
+        mainHeight = mainLine ? mainLine.getBoundingClientRect().height : 0;
+  }, 100);
 });
