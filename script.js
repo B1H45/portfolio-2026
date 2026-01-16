@@ -41,6 +41,7 @@ function customizeSite(target) {
             break;
     }
 
+    
     console.log(`Customizing site for: ${name || "general audience"}`);
 
     if (!greeter) return;
