@@ -23,7 +23,7 @@ function customizeSite(target) {
     switch(target) {
         case "msi":
             name = "Motorola";
-            projectsOrdering = [0, 1, 2, 3, 4, 5];
+            projectsOrdering = [1, 0, 2, 3, 4, 5];
             break;
         case "ea":
             name = "Electronic Arts";
