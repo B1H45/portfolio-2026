@@ -93,6 +93,28 @@ figcaption * {
     font-weight: 500;
 }
 
+.vid-with-placeholder {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+
+.vid-with-placeholder img {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    max-width: none !important;
+}
+
+.vid-with-placeholder video {
+    position: relative;
+    z-index: 2;
+}
+
 .main {
     background: url("imgs/black-background.png");
     background-attachment: fixed;
