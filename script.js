@@ -315,7 +315,7 @@ window.addEventListener('scroll', () => {
     otherLines.forEach(
         (line, index) => {
             let direction = (index % 2 === 0) ? -1 : 1;
-            line.style.transform = `translateX(calc(${direction * 28}rem + ${direction * Math.sign(focusOffset) * Math.pow(Math.abs(focusOffset), 3/2)/40}px))`;
+            line.style.transform = `translateX(calc(${direction * 28}rem + ${direction * Math.sign(focusOffset) * Math.pow(Math.abs(focusOffset), 3/2)/60}px))`;
         }
     );
 });
