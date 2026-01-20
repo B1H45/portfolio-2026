@@ -6,7 +6,7 @@ let greeter = document.querySelector("#greeter");
 let logline = document.querySelector("#logline");
 
 if (target) {
-    console.log(target);
+    // console.log(target);
     sessionStorage.setItem("audience", target);
 }
 
@@ -254,7 +254,7 @@ waInstances.forEach(
             let yOffset = Math.sin(Math.atan2(posY, posX))*instanceColoringSize*16;
 
             if (instance.id == "clear") {
-                console.log(`xOffset: ${xOffset}, yOffset: ${yOffset}`);
+                // console.log(`xOffset: ${xOffset}, yOffset: ${yOffset}`);
             }
 
             instance.children[0].classList.add("disableTransition");
@@ -307,9 +307,9 @@ const otherLines = document.querySelectorAll('.slidey-line');
 window.addEventListener('scroll', () => {
     const scrolled = window.scrollY;
     const focusOffset = window.innerHeight/2 - mainLine.getBoundingClientRect().top - mainLine.getBoundingClientRect().height / 2;
-    console.log(`focusOffset: ${Math.pow(focusOffset, 3/2)}px`);
+    // console.log(`focusOffset: ${Math.pow(focusOffset, 3/2)}px`);
 
-    console.log(Math.round(Math.log2(focusOffset)));
+    // console.log(Math.round(Math.log2(focusOffset)));
     // mainLine.style.transform = `translateX(calc(28rem + ${Math.pow(focusOffset, 3)/200000}px))`;
 
     otherLines.forEach(
@@ -324,4 +324,38 @@ window.addEventListener('load', () => {
   setTimeout(() => {
         mainHeight = mainLine ? mainLine.getBoundingClientRect().height : 0;
   }, 100);
+});
+
+
+// BACKGROUND FOCUS ANIMATION
+
+function mapRange(value, start1, stop1, start2, stop2, max, min) {
+  const newValue = ((value - start1) / (stop1 - start1)) * (stop2 - start2) + start2;
+
+  return Math.max(Math.min(newValue, max), min);
+}
+
+const focusBg = document.querySelectorAll('.background-focus-animate');
+
+window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    if (focusBg.length > 0) {
+        focusBg.forEach(
+            (bg) => {
+                const focusOffset = bg.children[0].getBoundingClientRect().top + bg.children[0].getBoundingClientRect().height;
+                console.log(`focusOffset: ${focusOffset}px`);
+                bg.children[1].style.filter = `blur(${mapRange(focusOffset, 300, 50, 0.2, 0, 0.2, 0)}rem) brightness(${mapRange(focusOffset, 300, 50, 0.12, 1, .9, 0.12)})`;
+                if (focusOffset > -200) {
+                    bg.children[1].style.position = "fixed";
+                    bg.children[1].style.left = `0`;
+                    bg.children[1].style.top = `0`;
+                } else {
+                    bg.children[1].style.position = "absolute";
+                    bg.children[1].style.left = `calc((2100px - ${Math.max(window.innerWidth, 2100)}px) / 2)`;
+                    bg.children[1].style.top = `calc(${bg.children[0].getBoundingClientRect().height}px + 10rem + 230px)`;
+                }
+            }
+        );
+    }
+
 });

@@ -894,7 +894,7 @@ img.lock-ratio {
 .flex-wrap {
     display: flex;
     flex-wrap: wrap;
-    column-gap: 2rem;
+    column-gap: 3rem;
     row-gap: 1rem;
 }
 
@@ -995,4 +995,33 @@ img.lock-ratio {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.focus-in-background {
+    /* opacity: 0.2; */
+    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    filter: blur(.2rem) brightness(.12);
+    z-index: -1;
+}
+
+.focus-in-background::before {
+    content: ' ';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    box-shadow: inset 0 0 100px 100px rgb(0, 0, 0, .25);
+    pointer-events: none;
+}
+
+.background-focus-animate > div:first-child {
+    margin-top: 10rem;
+    margin-bottom: 10rem;
+}
+
+.background-focus-animate .vid-with-placeholder {
+    overflow: hidden;
 }
