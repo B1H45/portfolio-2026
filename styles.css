@@ -825,7 +825,7 @@ ul.image-select button {
 
 
 section {
-    margin-bottom: clamp(6rem, 8vw, 100rem);
+    /* margin-bottom: clamp(6rem, 8vw, 100rem); */
 }
 
 .section-large {
@@ -959,7 +959,7 @@ img.lock-ratio {
   font-family: monospace;
   font-size: 1.25rem;
   border-radius: 2rem;
-  z-index: 1000;
+  z-index: 2;
   white-space: nowrap;
 }
 

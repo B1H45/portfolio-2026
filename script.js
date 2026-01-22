@@ -12,6 +12,11 @@ if (target) {
 
 let audience = sessionStorage.getItem("audience");
 let projectsOrdering = [0, 1, 2, 3, 4, 5];
+let resumeButton = document.querySelector("#resume-link");
+let resumeLinks = {
+    "TD": "TD-Resume.pdf",
+    "GENERAL": "General-Resume.pdf",
+}
 
 customizeSite(audience);
 
@@ -19,35 +24,43 @@ function customizeSite(target) {
     
     let name;
     let message;
+    let resume;
 
     switch(target) {
         case "msi":
             name = "Motorola";
+            resume = resumeLinks["GENERAL"];
             projectsOrdering = [1, 0, 2, 3, 4, 5];
             break;
         case "ea":
+            resume = resumeLinks["TD"];
             name = "Electronic Arts";
             break;
         case "mike":
+            resume = resumeLinks["GENERAL"];
             name = "Mike";
             projectsOrdering = [5, 4, 3, 2, 1, 0]
             break;
         case "ilm":
             name = "ILM";
+            resume = resumeLinks["TD"];
             message = "You've found a software engineer with a passion for 3D and proficiency in creating human-centered UI/UX experiences."
             projectsOrdering = [4, 2, 3, 0, 1, 5]
         default:
-            projectsOrdering = [4, 2, 3, 0, 1, 5]
+            resume = resumeLinks["GENERAL"];
+            projectsOrdering = [1, 0, 2, 3, 4, 5];
             break;
     }
 
     
     console.log(`Customizing site for: ${name || "general audience"}`);
 
-    if (!greeter) return;
-    greeter.textContent = `Hey ${name || "there"}!`;
-    if (!message || !logline) return;
-    logline.textContent = message;
+    if (greeter)
+        greeter.textContent = `Hey ${name || "there"}!`;
+    if (message && logline)
+        logline.textContent = message;
+    if (resumeButton)
+        resumeButton.setAttribute("href", "pdfs/" + resume);
 }
 
 
