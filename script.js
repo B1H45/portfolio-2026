@@ -46,21 +46,23 @@ function customizeSite(target) {
             resume = resumeLinks["TD"];
             message = "You've found a software engineer with a passion for 3D and proficiency in creating human-centered UI/UX experiences."
             projectsOrdering = [4, 2, 3, 0, 1, 5]
+            break;
         default:
             resume = resumeLinks["GENERAL"];
             projectsOrdering = [1, 0, 2, 3, 4, 5];
             break;
     }
 
-    
     console.log(`Customizing site for: ${name || "general audience"}`);
 
+    if (resumeButton) {
+        resumeButton.setAttribute("href", "pdfs/" + resume);
+    }
     if (greeter)
         greeter.textContent = `Hey ${name || "there"}!`;
     if (message && logline)
         logline.textContent = message;
-    if (resumeButton)
-        resumeButton.setAttribute("href", "pdfs/" + resume);
+
 }
 
 
@@ -352,84 +354,88 @@ function mapRange(value, start1, stop1, start2, stop2, max, min) {
 
 const focusBg = document.querySelectorAll('.background-focus-animate');
 const vid = document.querySelector(".focus-in-background video");
-const hwRatio = vid.height / vid.width;
-console.log(`hwRatio: ${hwRatio}`);
-
-const focusOffset = focusBg[0].children[0].getBoundingClientRect().top + focusBg[0].children[0].getBoundingClientRect().height;
-
-if (focusOffset > 0) {
-
-    focusBg.forEach((bg) => {
-            bg.children[1].style.position = "fixed";
-            bg.children[1].style.left = `calc( (4rem + max(100vw - var(--max-width), 0px))/2 * ${0})`;             
-            bg.children[1].style.top = `0`;
-            bg.children[1].style.height = Math.max(window.innerHeight, hwRatio * window.innerWidth) + "px";
-        }
-    );
-}
-
-window.addEventListener('scroll', () => {
-    const scrolled = window.scrollY;
-    if (focusBg.length > 0) {
-        focusBg.forEach(
-            (bg) => {
+if (vid) {
+    const hwRatio = vid.height / vid.width;
+    console.log(`hwRatio: ${hwRatio}`);
+    const focusOffset = focusBg[0].children[0].getBoundingClientRect().top + focusBg[0].children[0].getBoundingClientRect().height;
 
 
-                const focusOffset = bg.children[0].getBoundingClientRect().top + bg.children[0].getBoundingClientRect().height;
-                console.log(`focusOffset: ${focusOffset}px`);
-                const startfr = 600;
-                const endfr = 0;
-                let shrinkFactor = mapRange(focusOffset, startfr, endfr, 0, 1, 1, 0);
-                bg.children[1].style.filter = `blur(${mapRange(focusOffset, startfr, endfr, 0.2, 0, 0.2, 0)}rem) brightness(${mapRange(focusOffset, startfr, endfr, 0.12, 1, .9, 0.12)})`;
-                if (focusOffset > 0) {
-                    bg.children[1].style.position = "fixed";
-                    bg.children[1].style.left = `calc( (4rem + max(100vw - var(--max-width), 0px))/2 * ${shrinkFactor})`;             
-                    bg.children[1].style.top = `0`;
-                    console.log(`shrinkFactor: ${shrinkFactor}`);
-                    bg.children[1].style.height = mapRange(focusOffset, startfr, endfr, 
-                        Math.max(window.innerHeight, hwRatio * window.innerWidth), 
-                        hwRatio * (Math.min(window.innerWidth, parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--max-width'))) - 4*16), 
-                        Math.max(window.innerHeight, hwRatio * window.innerWidth), 
-                        hwRatio * (Math.min(window.innerWidth, parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--max-width'))) - 4*16), 
-                    ) + "px";
-                    bg.children[1].style.marginTop = mapRange(focusOffset, startfr, endfr,
-                        0,
-                        10,
-                        10,
-                        0
-                    ) + "rem";
-                    bg.children[2].style.marginTop = `10rem`;
-                    // bg.children[2].style.marginBottom = `7.7rem`;
-                    bg.children[2].style.height = `calc( ${hwRatio} * (min(var(--max-width), 100vw) - 4rem) )`;
-                    // bg.children[1].style.height = `calc( ${hwRatio} * (100vw - (4rem + max( (100vw - var(--max-width)), 0px) )* ${shrinkFactor}))`;
+    if (focusOffset > 0) {
 
-                    bg.children[2].style.height = hwRatio * (Math.min(window.innerWidth, parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--max-width'))) - 4*16) + "px"; 
-                } else {
-                    bg.children[1].style.position = "relative";
-                    bg.children[1].style.left = `0`;
-                    // bg.children[1].style.top = `calc(200px)`;
-                    bg.children[1].style.height = `calc( ${hwRatio} * (min(var(--max-width), 100vw) - 4rem) )`;
-
-                    bg.children[1].style.marginTop = `10rem`;
-
-                    bg.children[2].style.height = `0px`;
-                    bg.children[2].style.marginTop = `0px`;
-                    bg.children[2].style.marginBottom = `0px`;
-
-                    // bg.children[1].style.height = `0px`;
-                    // bg.children[1].style.marginTop = `0px`;
-                    // bg.children[1].style.marginBottom = `0px`;
-                }
+        focusBg.forEach((bg) => {
+                bg.children[1].style.position = "fixed";
+                bg.children[1].style.left = `calc( (4rem + max(100vw - var(--max-width), 0px))/2 * ${0})`;             
+                bg.children[1].style.top = `0`;
+                bg.children[1].style.height = Math.max(window.innerHeight, hwRatio * window.innerWidth) + "px";
             }
         );
     }
 
-});
+    window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY;
+        if (focusBg.length > 0) {
+            focusBg.forEach(
+                (bg) => {
 
-const siteVid = document.querySelector("#pet-adoption-video");
+
+                    const focusOffset = bg.children[0].getBoundingClientRect().top + bg.children[0].getBoundingClientRect().height;
+                    console.log(`focusOffset: ${focusOffset}px`);
+                    const startfr = 600;
+                    const endfr = 0;
+                    let shrinkFactor = mapRange(focusOffset, startfr, endfr, 0, 1, 1, 0);
+                    bg.children[1].style.filter = `blur(${mapRange(focusOffset, startfr, endfr, 0.2, 0, 0.2, 0)}rem) brightness(${mapRange(focusOffset, startfr, endfr, 0.12, 1, .9, 0.12)})`;
+                    if (focusOffset > 0) {
+                        bg.children[1].style.position = "fixed";
+                        bg.children[1].style.left = `calc( (4rem + max(100vw - var(--max-width), 0px))/2 * ${shrinkFactor})`;             
+                        bg.children[1].style.top = `0`;
+                        console.log(`shrinkFactor: ${shrinkFactor}`);
+                        bg.children[1].style.height = mapRange(focusOffset, startfr, endfr, 
+                            Math.max(window.innerHeight, hwRatio * window.innerWidth), 
+                            hwRatio * (Math.min(window.innerWidth, parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--max-width'))) - 4*16), 
+                            Math.max(window.innerHeight, hwRatio * window.innerWidth), 
+                            hwRatio * (Math.min(window.innerWidth, parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--max-width'))) - 4*16), 
+                        ) + "px";
+                        bg.children[1].style.marginTop = mapRange(focusOffset, startfr, endfr,
+                            0,
+                            10,
+                            10,
+                            0
+                        ) + "rem";
+                        bg.children[2].style.marginTop = `10rem`;
+                        // bg.children[2].style.marginBottom = `7.7rem`;
+                        bg.children[2].style.height = `calc( ${hwRatio} * (min(var(--max-width), 100vw) - 4rem) )`;
+                        // bg.children[1].style.height = `calc( ${hwRatio} * (100vw - (4rem + max( (100vw - var(--max-width)), 0px) )* ${shrinkFactor}))`;
+
+                        bg.children[2].style.height = hwRatio * (Math.min(window.innerWidth, parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--max-width'))) - 4*16) + "px"; 
+                    } else {
+                        bg.children[1].style.position = "relative";
+                        bg.children[1].style.left = `0`;
+                        // bg.children[1].style.top = `calc(200px)`;
+                        bg.children[1].style.height = `calc( ${hwRatio} * (min(var(--max-width), 100vw) - 4rem) )`;
+
+                        bg.children[1].style.marginTop = `10rem`;
+
+                        bg.children[2].style.height = `0px`;
+                        bg.children[2].style.marginTop = `0px`;
+                        bg.children[2].style.marginBottom = `0px`;
+
+                        // bg.children[1].style.height = `0px`;
+                        // bg.children[1].style.marginTop = `0px`;
+                        // bg.children[1].style.marginBottom = `0px`;
+                    }
+                }
+            );
+        }
+
+    });
+
+    const siteVid = document.querySelector("#pet-adoption-video");
 
 
 
-siteVid.addEventListener('click', () => {
-    window.open('https://pages.github.sfu.ca/bha86/235-p4-project/index.html', '_blank');
-});
+    siteVid.addEventListener('click', () => {
+        window.open('https://pages.github.sfu.ca/bha86/235-p4-project/index.html', '_blank');
+    });
+}
+
+
