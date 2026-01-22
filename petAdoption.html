@@ -19,9 +19,8 @@
                     </ul>
                 </nav>
             </header>
-            <section class="middle-double background-focus-animate">
-                <div class="two-column">
-                    <div></div>
+            <section class="background-focus-animate">
+                <div class="right-float">
                     <div>
                         <h1 class="block">Pet Adoption Database</h1>
                         <div class="bottom-align">
@@ -32,10 +31,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="relative block focus-in-background">
-                    <div class="vid-with-placeholder" href="" onclick="window.open('https://pages.github.sfu.ca/bha86/235-p4-project/index.html', '_blank')">
+                <div class="relative focus-in-background">
+                    <button class="vid-with-placeholder" id="pet-adoption-video">
                         <img class="border" src="imgs/235/fullSite.png" alt="Pet Adoption Database video">
-                        <video class="border" width="100%" height="auto" autoplay loop muted>
+                        <video class="border" width="2880" height="1916" autoplay loop muted>
+                            <source src="imgs/235/fullSite.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </button>
+                </div>
+                <div class="relative bg-focus-placeholder">
+                    <div class="vid-with-placeholder">
+                        <img class="border" src="imgs/235/fullSite.png" alt="Pet Adoption Database video">
+                        <video class="border" width="2880" height="1916" autoplay loop muted>
                             <source src="imgs/235/fullSite.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
@@ -50,64 +58,47 @@
                 </div> -->
             </section>
 
-            <section id="slidey-box">
-                <img class="slidey-line" src="imgs/fs/line1.png" alt="line of design images">
-                <div class="slidey-line" id="slidey-text-line">
-                    <img src="imgs/fs/line4.png" alt="line of design images">
-                    <div id="slidey-text-box">
-                        <h2>Synthesizing a Graphic identity</h2>
-                        <p>The project began by gathering as many references as possible to draw from. We looked for pure graphic design examples in order to develop a strong graphic sense before dealing with web design constraints and complications.</p>
-                    </div>
-                    <img src="imgs/fs/line3.png" alt="line of design images">
-                </div>
-                <img class="slidey-line" src="imgs/fs/line2.png" alt="line of design images">
-            </section>
-            
-            <section>
-                <div class="two-column one_four stack-2">
-                    <div class="v-space-between">
-                        <div class="body-copy">
-                            <p>Using our design references, I conducted a series of explorations and created some concept pieces - first of posters, to experiment more freely with graphic design, then with site concepts to narrow in on a style.</p>
-                        </div>
-                        <ul class="image-select" for="summaryImg">
-                            <li img-src="imgs/fs/posters.png" class="active">
-                                <svg width="14" height="15" viewBox="0 0 14 15" fill="#8E8E8E" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M6.92773 0L12.3317 4.88L13.8559 12L6.92773 14.24L-0.000468731 12L1.52374 4.88L6.92773 0Z" fill="#8E8E8E"/>
-                                </svg>
-                                <button><span>Exploring styles through posters</span></button>
-                            </li>
-                            <li img-src="imgs/fs/board.png">
-                                <svg width="14" height="15" viewBox="0 0 14 15" fill="#8E8E8E" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M6.92773 0L12.3317 4.88L13.8559 12L6.92773 14.24L-0.000468731 12L1.52374 4.88L6.92773 0Z" fill="#8E8E8E"/>
-                                </svg>
-                                <button><span>My ideation board with tests and inspiration</span></button>
-                            </li>
-                            <li img-src="imgs/fs/site-concept.png">
-                                <svg width="14" height="15" viewBox="0 0 14 15" fill="#8E8E8E" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M6.92773 0L12.3317 4.88L13.8559 12L6.92773 14.24L-0.000468731 12L1.52374 4.88L6.92773 0Z" fill="#8E8E8E"/>
-                                </svg>
-                                <button><span>This site concept helped define the style</span></button>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        
-                        <img id="summaryImg" src="imgs/fs/posters.png" alt="Picture of Fuorisalone poster concepts" class="lock-ratio">
-                    </div>
-                </div>
-            </section>
-
             <section class="middle-double">
-                <div class="bottom-align block">
+                <div class="bottom-align section-less">
                     <div>
-                        <h2 class="block">Content Design</h2>
+                        <h2 class="block">Iterative Wireframing</h2>
                         <div class="flex-wrap bottom-align w-space-between">
-                            <p class="body-copy-wide">Content design is an oft-overlooked aspect of site creation - what info goes on what page, what should be included, etc. In order to narrow in our goals, we framed our site as one that would be used during the festival, rather than before or after. According to that scope, I began to develop the content and design strategies that would guide us.</p>
-                            <p class="body-copy">Here’s an excerpt from our presentation deck explaining our content strategy:</p>
+                            <p class="body-copy-wide">I employed wireframing with stripped-down styling to rapidly test various design choices without working in full fidelity. This way, I could test different layout options of the information I had and catch and discard problematic designs early, iterating towards the design’s best form.</p>
                         </div>
                     </div>
                 </div>
-                <div class="relative block">
+
+                <div class="static-gallery section-less">
+                    <figure>
+                        <figcaption>1. Unintuitive clickability, image gets overpowered.</figcaption>
+                        <img src="imgs/235/card1.png" alt="Wireframe iteration 1">
+                    </figure>
+                    <figure>
+                        <figcaption>2. More clear, but slightly undiscoverable.</figcaption>
+                        <img src="imgs/235/card2.png" alt="Wireframe iteration 2">
+                    </figure>
+                    <figure>
+                        <figcaption>3. Clean, hierarchical and obviously clickable.</figcaption>
+                        <img src="imgs/235/card3.png" alt="Wireframe iteration 3">
+                    </figure>
+                </div>
+
+                <div class="static-gallery section-less">
+                    <figure>
+                        <figcaption>1. Resemble buttons rather than filters</figcaption>
+                        <img src="imgs/235/filter1.png" alt="Wireframe iteration 1">
+                    </figure>
+                    <figure>
+                        <figcaption>2. Greyed out selectors give off the appearance of being unclickable or deactivated</figcaption>
+                        <img src="imgs/235/filter2.png" alt="Wireframe iteration 2">
+                    </figure>
+                    <figure>
+                        <figcaption>3. Clear indicators of current selection and interactivity</figcaption>
+                        <img src="imgs/235/filter3.png" alt="Wireframe iteration 3">
+                    </figure>
+                </div>
+
+                <!-- <div class="relative block">
                     <svg id="lines5" class="linesGraphic" width="823" height="340" viewBox="0 0 823 340" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="804.471" width="18.5122" height="340"/>
                         <rect x="771.374" width="18.5122" height="340"/>
@@ -122,27 +113,31 @@
                         <rect x="547" y="49.0012" width="18.5122" height="547" transform="rotate(90 547 49.0012)"/>
                     </svg>
                     <img class="border full" width="100%" height="auto" src="imgs/fs/content-strat.png" alt="Content Strategy excerpt from presentation deck">
-                </div>
+                </div> -->
+            </section>
+
+            <section>
+                <div class="two-column four-one stack-2 middle-double">
+                    <video class="border" width="100%" height="auto" autoplay loop muted>
+                        <source src="imgs/235/dropDown.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="v-space-between">
+                        <div class="body-copy">
+                            <h2>Semantic markup and accessible design</h2>
+                            <p>During the implementation stage of this project, I practiced semantic and accessible web best practices to make the website accommodating for screen-readers and other tools. This is seen in website interactions in that they are built with distinctive focus-states, and avoid hover-only animations.</p>
+                        </div>
+                    </div>
             </section>
 
             <section>
                 <div class="two-column one_four stack-2">
-                    <div class="v-space-between">
-                        <div class="body-copy">
-                            <h2>Interactions and Implementation</h2>
-                            <p>The final prototype was created in Figma so as to work faster than a full code implementation. I was able to quickly pick up the prototyping tools to create interactions such as the district selector or exhibit thumbnails.</p>
-                        </div>
-                        <button href="index.html" class="largeButton washAnimate" onclick="window.open('https://www.figma.com/proto/AczvCGfDnMda1kTSeMXHYo/iat238-microsite-part-2?page-id=475%3A1216&node-id=612-215&starting-point-node-id=585%3A130&t=icyDa7qWIDrvGSwv-1', '_blank')"><span>View final prototype →</span></button>
+                    <div class="body-copy block">
+                        <h2>Responsive Layouts</h2>
+                        <p>When designing for multiple screen sizes, I introduced breakpoints where the layout restructured entirely to keep the information organization clear and intentional rather than compressing a single layout. However, throughout the breakpoints I maintained consistent visual cues to ensure the hierarchy remained recognizable and the experience felt cohesive across screen sizes.</p>
+                        <p class="italic">Full-bleeds remain full bleeds, text areas remain clustered with their specific images, and hierarchy and relationships between elements are maintained.</p>
                     </div>
-                <div class="w-space-between">
-                    <video class="border" width="49%" height="auto" autoplay loop muted>
-                        <source src="imgs/fs/cards.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <video class="border" width="49%" height="auto" autoplay loop muted>
-                        <source src="imgs/fs/district-select.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+                    <iframe class="grow-shrink-frame" src="235-p4-project-main/chomper.html" frameborder="0"></iframe>        
                 </div>
             </section>
 

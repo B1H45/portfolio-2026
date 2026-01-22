@@ -1,0 +1,1038 @@
+.container{
+    background-color: var(--bg);
+    background-image: url('../img/home1.jpg');
+    margin: 0;
+    display: grid;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.background-image{
+    width: 100%;
+    height: 10rem;
+    background-image: url('../img/home1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.title-container{
+    background-image: url('../img/home1.jpg');
+    background-size: cover;
+
+    /* developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/background-attachment */
+    background-attachment: fixed;
+    
+    color: var(--secondary);
+    padding: 2rem;    
+    display: grid;
+    justify-content: center;
+}
+
+.title-elements {
+    min-height: 30rem;
+    margin-bottom: 5rem;
+    display: flex;
+    /* gap: 2rem; */
+    flex-direction: row;
+    width: 90vw;
+    max-width: 97.5rem;
+}
+
+.title-card{
+    background-color: var(--bg);
+    order: -1;
+    padding: 4rem;
+    margin-left: -20rem;
+    padding-left: 20rem;
+}
+
+.title-container h1{
+    line-height: 90%; 
+    text-align: left;
+    max-width: 18rem;
+    font-size: 6rem;
+}
+
+.title-container p{
+    text-align:left;
+    margin-top: 2rem;
+    max-width: 25rem;
+    line-height: 1.7rem;
+}
+
+.title-menu {
+    justify-self: flex-end;
+    margin-left: auto;
+    display:flex;
+}
+
+.browse-link{
+    background-color: var(--light);
+    color: var(--secondary);
+    transition: all 0.5s ease;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    font-size: 1.2rem;
+    line-height: 1;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0rem .25em;
+
+    /* From https://stackoverflow.com/questions/15782078/bring-element-to-front-using-css */
+    position:relative;
+    z-index: 10;
+}
+
+.browse-link:hover, .browse-link:focus{
+    transform: scale(1.1);
+    /* from https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/color-mix */
+    background-color: color-mix(in srgb, var(--bg) 95%, var(--bg) 5%);
+}
+
+.browse-link:focus {
+    background-color: var(--primary);
+    color: var(--light);    
+}
+
+.tag2{
+    background-color: var(--bg);
+    color: var(--secondary);
+    border: none;
+    height: 4rem;
+    transition: all 0.3s;
+    padding: 1rem 3rem;
+    border-radius: 1rem;
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    align-self: flex-start;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 80%; 
+    left: 0;
+    background-color: var(--bg);
+    border-radius: 0.8rem;
+    min-width: 200px;
+    padding: 1rem 0;
+    /* from https://www.w3schools.com/cssref/css3_pr_box-shadow.php */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    /* from https://www.w3schools.com/cssref/pr_pos_z-index.php*/
+    z-index: 10; /* make it go on top of other stuff */
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 1rem 1.5rem;
+    color: var(--secondary);
+    font-size: 1.4rem;
+    text-decoration: none;
+}
+.dropdown-content a:hover {
+    background-color: rgba(0,0,0,0.07);
+}
+
+#filtered {
+    background-color: var(--light);
+    color: var(--primary);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.pets-header{
+    background-color: var(--primary);
+    color: var(--bg);
+    text-align: center;
+    padding:2rem 1rem;
+}
+
+.homepage-content {
+    display:grid;
+    justify-content: center;
+    padding: 1rem;
+    min-width: min-content;
+    background-color: var(--bg);
+}
+
+.pets-container{
+    margin: 0;
+    padding: 5rem 0rem;
+    padding-top: 2rem;
+    display: grid;
+
+    /* https://css-tricks.com/responsive-layouts-fewer-media-queries/ */
+    grid-template-columns:1fr 1fr 1fr;
+    gap: 1rem;
+    max-width: 97.5rem;
+}
+
+.pet-card{
+    background-color: var(--secondary-light);
+    border-radius: 1rem;
+    display: flex;
+    flex-basis: 20rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: top;
+    color: var(--dark);
+    text-decoration: none;
+    flex-grow: 1;
+
+    transition-property: all;
+    transition-duration: .1s;
+}
+
+.card-info{
+    flex-grow: 6;
+    min-width: 220px;
+}
+
+.card-info.long-details {
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.long-details > .details {
+    column-gap: 1rem;
+    row-gap: .25rem;
+}
+
+.card-contents{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 3rem 1.5rem;
+    flex-basis: 100%;
+    gap: 2rem;
+}
+
+.pet-name{
+    text-align: left;
+    line-height: 100%;
+    flex-grow: 0;
+    flex-basis: content;
+    font-size: 2rem;
+
+}
+.details {
+    font-size: 1.3rem;
+    display: flex;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    gap:0;
+}
+
+.pet-card:hover, .pet-card:focus {
+    /* from https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/transform */
+    transform: scale(1.03);
+    /* from https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/color-mix */
+    background-color: color-mix(in srgb, var(--primary) 80%, var(--dark) 20%);
+    color: var(--light);
+}
+
+    
+
+.pet-card:hover .arrow-button, .pet-card:focus .arrow-button{
+    transform: scale(1.2);
+}
+
+.details p {
+    flex-basis: content;
+    flex-shrink: 1;
+    flex-grow: 1;
+}
+
+.pet-card img{
+    object-fit: cover;
+    width: 100%;
+    height: 250px;
+    border-radius: 1rem;
+    flex-basis: 100%;
+    flex-grow: 0;
+    min-width: 0;
+}
+
+footer {
+    background-color: var(--secondary);
+    display: flex;
+    justify-content: center;
+}
+
+.footer{
+    background-color: var(--secondary);
+    color: #FFF9C8;
+    display: flex;
+    /* grid-template-columns: 1fr 1fr; */
+    padding: 4rem;
+    gap: 2rem;
+    max-width: 97.5rem;
+    flex-basis: 100vw;
+    flex-shrink: 1;
+}
+
+.gooberpaws{
+    line-height:2rem;
+    /* margin-bottom: 2rem; */
+    
+}
+
+.footer h2{
+    font-size: 4rem;
+    line-height: 5rem;
+    font-weight: 550;
+    max-width: 30rem;
+    flex-shrink: 3;
+}   
+.footer h3{
+    font-size: 2.5rem;
+    /* padding-top: 5rem; */
+    font-weight: 500;
+}
+.footer h4{
+    font-size: 1.7rem;
+    padding-left: 4rem;
+    margin-bottom: 1rem;
+}
+
+.footer p{
+    max-width: 25rem;
+}
+
+.footer-row{
+    display:flex;
+    /* flex-wrap: wrap; */
+    gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+}
+
+.footer-row h4{
+    font-weight: 550;
+    font-size: 2rem;
+    padding-left: 4rem;
+    margin-bottom: 0.6rem;
+}
+
+.footer-column{
+    /* line-height: 2rem; */
+    flex-grow: 0;
+}
+
+.goob{
+    display: inline-block;
+    font-size: 1.5rem;
+    padding-top: 1rem;
+    padding-left: 4rem;
+    text-decoration: underline; 
+    transition: 0.4s ease;
+}
+.goob a{
+    color: var(--light);
+}
+
+.goob:hover, .goob:focus{
+    text-decoration: none;
+    transform: scale(1.1);
+}
+
+.tag a {
+    text-decoration: none;
+    color: var(--light)
+}
+
+@media (width < 31.5rem) {
+
+
+   .background-image {
+        width: 100vw;
+        background-size: cover;
+        background-position: 90% center;
+        height: 2rem;
+        
+       
+   }
+
+    .title-card {
+        padding-top: 12rem;
+        flex-grow: 1;
+        margin-left: 0;    
+        padding-left: 1rem; 
+        padding-right: 1rem;
+        width: 100%;
+        box-sizing: border-box;
+        order: 1;
+    }
+
+
+    .footer {
+        padding: 1rem 2rem;
+    }
+    
+    .footer-left h1{
+        font-size: 3rem;
+        line-height: 3.5rem;
+
+    }
+
+    .footer h2 {
+        margin-top: 2rem;
+    }
+
+    .footer-right h2 {
+        font-size: 2rem;
+    }
+
+    .footer-right h3{
+        font-size: 1.3rem;
+    }
+
+    .footer-right h4{
+        font-size: 1.3rem;
+       
+    }
+
+    .footer-mission-column p {
+        font-size: 0.8rem; 
+        line-height: 1.6; 
+    }
+
+    .footer-contact-column p{
+        font-size: 0.8rem; 
+        line-height: 1.6; 
+    }
+
+    .goob {
+        font-size: 1.1rem;
+    }
+
+    .pets-container{
+        display: grid;
+        grid-template-columns: 1fr;
+        /* gap: 2rem;  */
+        justify-content: right;
+    }
+
+
+    .details {
+        font-size: 0.6rem;
+    }
+
+    .card-contents{
+        padding: 1.5rem 1rem; 
+        margin-left: 1rem;
+    }
+
+    
+  
+   
+}
+
+
+
+.arrow-button {
+    /* from https://www.w3schools.com/cssref/pr_background-position.php */
+    /* background-image: url("../img/dark-square.png");
+    background-size: 2rem;
+    background-repeat: no-repeat;
+    background-position: center; */
+
+    border-radius: 100rem;
+    font-size: 3.5rem;
+    color: var(--light);
+    flex-grow: 1;
+    
+
+    transition-property: all;
+    transition-duration: .3s;
+}
+
+/* from this point on this will be for the browse animals page */
+
+.browse-info h1{
+    color: var(--light);
+    font-size: 5rem;
+}
+
+.browse-container img{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: auto;
+    height: 400px;
+    object-fit: cover;
+    
+    flex-basis: 200px;
+    flex-grow: 0; 
+    width: 100%;
+    
+}
+
+.browse-container{
+    background-color: var(--bg);
+    padding: 0;
+    
+}
+
+
+.browse-info{
+
+    background-color: var(--primary);
+    padding-left: 18rem;
+    padding-right: 18rem;
+    margin-top: 20rem;
+    padding-bottom: 5rem;
+    padding-top: 3rem;
+}
+
+#browse-animals-page {
+    position:fixed;
+    /* https://www.programiz.com/css/z-index */
+    z-index: -1;
+    margin-top: -20rem;
+}
+
+.browse-info h1{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0rem;
+}
+
+.browse-info a{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    font-size: 1rem;
+    font-weight: 400;
+    margin-left: auto;
+    color: var(--light);
+    margin-right: -5rem;
+    background-color: var(--primary);
+    border: none;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    text-decoration: underline;
+    transition: 0.4s ease;
+    transform-origin: right center;
+}
+
+.browse-info a{
+    text-decoration: underline;
+}
+
+.browse-info a:hover, .browse-info a:focus{
+    transform: scale(1.2);
+}
+
+.filter a{
+    text-decoration: none;
+}
+
+.filter{
+    display: flex;
+    width: auto;
+    height: auto;
+    align-items: center;
+    gap: 1rem;            
+    flex-wrap: wrap; 
+    background-color: var(--primary);
+    
+}
+.filter p{
+    font-size: 2rem;
+    color: var(--bg);
+    margin-right: 1rem;
+    text-decoration: none;
+    
+}
+
+
+.filter a{
+    align-items: center;
+    justify-content: center;
+    
+    color: var(--light);
+    border: 0.2rem solid var(--light);
+    height: auto;
+    transition: all 0.3s;
+    background-color: var(--primary);
+    border-radius: .5rem;
+    font-size: 2rem;
+    line-height: 1;
+    padding: 1rem 2rem;
+    margin: 0 0.5rem;
+    text-decoration: none;
+}
+
+.filter a:hover, .filter a:focus{
+    background-color: var(--light);
+    color: var(--primary);
+}
+
+/* Browse page */
+@media (width < 101.25rem){
+    .browse-info{
+        padding: 3rem 10rem;
+    }
+    .filter{
+        display: flex;
+        margin: 0;
+        padding: 0;
+        flex-direction: row;
+        flex-wrap: wrap;
+        
+    }
+    .filter > p{
+        flex-basis: 100%;
+        margin: 0 0 0.5rem 0;
+    }
+    .filter > a.return-home-button{
+        font-size: 1rem;
+    }
+
+
+}
+
+@media(width <=63rem){
+    .title-container h1{
+        font-size: 3.5rem;
+        max-width: none;
+    }
+
+    p{
+        font-size: 1rem;
+        max-width: 40rem;
+    }
+
+    .title-container{
+        display: flex;
+        flex-direction: column;
+        background-attachment: unset;
+        padding: 0;
+    }
+
+    .title-elements{
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .title-menu {
+        flex-wrap: wrap;
+        padding: 1rem;
+        /* align-items: end; */
+        justify-content: end;
+        /* align-items: start; */
+        align-content: start;
+        gap: .5rem;
+    }
+
+    .browse-link {
+        margin: 0;
+    }
+
+    .browse-link-holder {
+        flex-basis: content;
+    }
+    
+    .title-card {
+        margin-top: 4rem;
+        order: 1;
+        padding: 2rem 2rem;
+        margin: 2rem 0rem;
+        padding-left: 21rem;
+        margin-left: -20rem;
+        width: fit-content;
+    }
+
+    .title-container p {
+        max-width: 30rem;
+    }
+
+    /*
+    .background-image{
+        background-position: calc(1000px + 20vw);
+    }
+    
+    img{
+        height: 60vw;
+        display:block;
+        width: 100%;
+        margin: 0;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 80rem;
+    } */
+    
+
+    .pet-name {
+        margin-top: .5rem;
+        font-size: 1.75rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .browse-info h1{
+        font-size: 4rem;
+    }
+
+    .browse-info{
+        padding: 3rem 8rem;
+        width: 100%;
+        box-sizing: border-box;
+        align-items: center;
+    }
+
+    .browse-info > a.return-home-button{
+        display: flex;
+        justify-content: flex-end;
+        margin-right: -3rem;
+        font-size: 1.2rem;
+    }
+
+    .browse-info > p{
+        font-size: 1.5rem;
+    }
+    .filter{
+        display: flex;
+        flex-direction: row;
+        max-width: 50rem;
+        margin: 0;
+        
+        padding: 0;
+        
+    }
+    .filter > p{
+         flex-basis: 100%;
+        margin: 0 0 .5rem 0;
+       
+    }
+
+    .filter > a.return-home-button{
+        max-height: 3rem;
+    }
+
+    /*homepage section */
+
+    .pets-container{
+        grid-template-columns: 1fr 1fr;
+        justify-content: center;
+    }
+    .pet-card{
+        
+        /* flex-basis: 10rem;
+        flex-grow: 0;
+        
+        min-width: 25rem;
+        align-items: center;
+        margin: 0rem 6rem; */
+        max-width: 25rem;
+    }
+    .card-contents{
+        align-items: center;
+        /* padding: 5rem 5rem; */
+    }
+    .card-info{
+        /*
+        max-width: 220px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding:0; */
+        min-width: 100%;
+        flex-grow: 1;
+        
+    }
+
+    .pets-header h2 {
+        font-size: 2.5rem;
+    }
+
+    .card-info.long-details{
+        flex-basis: auto;
+        flex-grow: 1;
+    }
+    .details p{
+        font-size: 1.25rem;
+    }
+
+    .footer{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        padding: 1rem 2rem;
+    }
+
+    .footer h2 {
+        font-size: 2rem;
+        line-height: 2.5rem;
+        max-width: 15rem;
+        margin-top: 2rem;
+    }
+
+    .footer-row {
+        gap: 1rem;
+    }
+
+    .footer h2 {
+        min-width: 9.5rem;
+    }
+
+    @media (width <= 30rem) {
+        .footer-row {
+            flex-wrap: wrap;
+        }
+    }
+
+    .footer h3 {
+        font-size: 1.5rem;
+        line-height: 2.5rem;
+    }
+
+    .footer-column {
+        max-width: 15rem;
+    }
+
+    .title-elements {
+        flex-direction: column;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    .title-card p {
+        margin-top: 1rem;
+    }
+}
+
+@media (width < 34.5rem) {
+    .title-container h1{
+        font-size: 2.5rem;
+    }
+
+    .title-container {
+        background-position: top;
+        background-size: cover;
+        /* height: 30rem; */
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+}
+
+@media (width <= 20rem){
+
+
+    .filter{
+        /*display: grid;
+        font-size: 0.1rem;
+        grid-template-columns: 1fr 1fr;
+        
+        margin: 0;
+        padding: 0;
+        align-items: center; */
+        gap: 1rem 1rem;
+    } 
+
+     .filter a{
+      
+            width: 50%;
+            font-size: 0.5rem;
+            padding: 0;
+            margin-right: 0rem;
+            
+            min-width: auto;
+            height: auto;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+}
+
+@media (width < 31.5rem){ /* for actual mobile size */
+
+    .browse-info h1{
+        font-size: 4rem;
+        margin-left: -3rem;
+    }
+
+
+    p{
+        font-size: 1rem;
+        max-width: 40rem;
+    }
+
+
+    img{
+        height: 60vw;
+        display:block;
+        width: 100%;
+        margin: 0;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 80rem;
+    }
+    .browse-info > a.return-home-button{
+        margin-top: 0.5rem;
+        margin-right: -6rem;
+    }
+
+    .browse-info{
+        width: 100%;
+        box-sizing: border-box;
+        align-items: center;
+        padding-left: 4rem;
+    }
+
+    
+    .filter{
+        display: grid;
+        
+        grid-template-columns: 1fr;
+        column-gap: 4rem;
+        margin: 0;
+        
+        padding: 0;
+        align-items: start; 
+        
+    }
+
+    .filter > p{
+        grid-column: 1/-1;
+        font-size: 1.3rem;
+       
+        
+        margin: 0 0 .5rem 0;
+        margin-left: -3rem;
+    }
+
+    .filter > a.return-home-button{
+        
+        font-size: .8rem;
+        min-width: 7rem;
+        max-width: 7rem;
+        padding: 1rem 1rem;
+        margin-left: -3rem;
+        
+    }
+
+    /*homepage section */
+
+    .pets-container{
+        grid-template-columns: 1fr;
+        justify-content: center;
+    }
+    .pet-card{
+        
+        flex-basis: 10rem;
+        flex-grow: 0;
+        
+        min-width: 0rem;
+        align-items: center;
+    }
+    .card-contents{
+        align-items: center;
+        padding: 1rem 1rem;
+        margin: 0;
+    }
+    .card-info{
+        /*
+        max-width: 220px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding:0; */
+        flex-grow: 1;
+        
+    }
+    .card-info.long-details{
+        flex-basis: auto;
+        flex-grow: 1;
+    }
+
+    .footer{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .filter p{
+        display: block;
+        
+    }
+    .filter{
+        display: grid;
+        grid-column: auto;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .homepage-content {
+        min-width: 0;
+    }
+}
+
+
+#menu {
+    display:grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    border-radius: 1rem;
+}
+
+#menu.hidden {
+	display: none;
+}
+
+.dropdown-toggle{
+    color: var(--light);
+    transition: all 0.5s ease;
+    font-size: 1.2rem;
+    line-height: 1;
+    text-decoration: none;
+    display: inline-block;
+    padding: 1rem 3rem;
+    background-color: var(--secondary);
+    border: none;
+}
+
+/* From https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:focus-visible */
+.dropdown-toggle:focus-visible {
+    background-color: var(--primary);
+    color: var(--light);
+}
+
+.dropdown-toggle:focus-visible .dropdown {
+    transform: scale(1.2);  
+}
+
+.nav-item {
+    display: grid;
+}
+
+.dropdown-link {
+    text-decoration: none;
+    color: var(--light);
+    padding: 1rem 2rem;
+    transition: all 500ms ease;
+}
+
+.dropdown-link:hover, .dropdown-link:focus {
+    background-color: var(--secondary);
+    transform: scale(1.05);
+}
+
+.dropdown-link:focus {
+    background-color: var(--primary);
+}
+
+.dropdown {
+    background-color: var(--secondary-light);
+    border-radius: 1rem;
+    display: column;
+    overflow: hidden;
+}
+

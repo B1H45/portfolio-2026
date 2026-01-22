@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Gloock&family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&family=Jomhuria&family=Purple+Purse&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
+
+
+
+
+/* @font-face {
+    font-family: "Canela-Black";
+    font-style: normal;
+    font-weight: 800;
+    src: url("../fonts/Canela-Black.ttf") format('ttf'),
+    url("../fonts/Canela-Black.woff2") format('woff2'),
+    url("../fonts/Canela-Black.woff") format('woff');
+} */
+
+/* @import url(https://db.onlinewebfonts.com/c/9e06e3bdc9b18dc3e5b2a21e559020b8?family=Canela-Black);  */
+
+
+/* From https://www.w3schools.com/css/css3_variables.asp */
+:root {
+    --bg: #FFFBD9;
+    --dark: #282B28;
+    --primary: #A24936;
+    --secondary: #708D81;
+    --secondary-light: #8BAA9E;
+    --light: #FFF9C8;
+    --highlight: #D36135;
+}
+
+h1, h2, h3, .h2subtitle, .subheading {
+    font-family: "Newsreader", sans-serif;
+    font-weight: 800;
+}
+
+.subheading {
+    font-style: italic;
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+h3 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 5rem;
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 3rem;
+}
+
+* {
+    margin: 0;
+    min-width:0;
+    font-family: "Source Sans 3", sans-serif;
+}
+
+.page-link {
+    background-color: var(--light);
+    color: var(--secondary);
+    transition: all 0.5s ease;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    font-size: 1.2rem;
+    line-height: 1;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0rem .25em;
+
+    /* From https://stackoverflow.com/questions/15782078/bring-element-to-front-using-css */
+    position:relative;
+    z-index: 10;
+}
+
+@media (width <= 63rem) {
+    h1 {
+        font-size: 3.5rem;
+    }
+    
+    .header-content {
+        flex-direction: column;
+    }
+}
