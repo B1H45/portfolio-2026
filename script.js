@@ -37,6 +37,8 @@ function customizeSite(target) {
         case "ea":
             resume = resumeLinks["TD"];
             name = "Electronic Arts";
+            message = "You've found a technical artist who is experienced in building reusable tools and procedural systems to enable creativity.";
+            projectsOrdering = [4, 1, 0, 3, 2, 5];
             break;
         case "mike":
             resume = resumeLinks["GENERAL"];
