@@ -41,17 +41,23 @@ function customizeSite(target) {
         case "mike":
             resume = resumeLinks["GENERAL"];
             name = "Mike";
-            projectsOrdering = [5, 4, 3, 2, 1, 0]
+            projectsOrdering = [5, 4, 3, 2, 1, 0];
             break;
         case "ilm":
             name = "ILM";
             resume = resumeLinks["TD"];
-            message = "You've found a software engineer with a passion for 3D and proficiency in creating human-centered UI/UX experiences."
-            projectsOrdering = [4, 2, 3, 0, 1, 5]
+            message = "You've found a software engineer with a passion for 3D and proficiency in creating human-centered UI/UX experiences.";
+            projectsOrdering = [4, 2, 3, 0, 1, 5];
+            break;
+        case "kabam":
+            name = "Kabam";
+            resume = resumeLinks["TD"];
+            message = "You've found a technical designer with a passion for creating art with coding and expertise in creating exciting UI/UX experiences.";
+            projectsOrdering = [4, 3, 0, 1, 2, 5];
             break;
         default:
             resume = resumeLinks["GENERAL"];
-            projectsOrdering = [1, 0, 2, 3, 4, 5];
+            projectsOrdering = [0, 1, 2, 3, 4, 5];
             break;
     }
 
@@ -161,14 +167,14 @@ if (document.querySelector('.project-thumbnail')) {
     let thumbnailsSorted = [...thumbnails];
 
     // Sort: non-closed first, then closed
-    projectsOrdering.sort((a, b) => {
-    const aIsClosed = thumbnails[a].classList.contains('closed');
-    const bIsClosed = thumbnails[b].classList.contains('closed');
+    // projectsOrdering.sort((a, b) => {
+    // const aIsClosed = thumbnails[a].classList.contains('closed');
+    // const bIsClosed = thumbnails[b].classList.contains('closed');
     
-    if (aIsClosed && !bIsClosed) return 1;  // a goes after b
-    if (!aIsClosed && bIsClosed) return -1; // a goes before b
-    return 0; // keep original order
-    });
+    // if (aIsClosed && !bIsClosed) return 1;  // a goes after b
+    // if (!aIsClosed && bIsClosed) return -1; // a goes before b
+    // return 0; // keep original order
+    // });
 
     for (i = 0; i < projectsOrdering.length; i ++) {
         thumbnailsSorted[i] = thumbnails[projectsOrdering[i]];
@@ -188,10 +194,15 @@ if (profileImg && profileDesc) {
     const profthumbnails = ["imgs/fs1.png", "imgs/moa.png", "imgs/petAdop.png", "imgs/kt.png", "imgs/alienAttack.png", "imgs/posters.png"];
     const profDescriptions = ["UX design", "Experience design", "UI design", "Motion graphics", "Graphical programming", "Graphic design"];
     const profAligns = ["left", "right", "left", "left", "left", "left"];
-    const profLinks = ["fuorisalone.html", "moaDesign.html", "petAdoption.html", "left", "left", "left"];
+    const profLinks = ["fuorisalone.html", "moaDesign.html", "petAdoption.html", "https://www.youtube.com/watch?v=E_Urt3SF4IQ", "https://youtu.be/f0ykj9HS9j0", "imgs/posters/allPosters.pdf"];
 
     profileImg.setAttribute("src", profthumbnails[projectsOrdering[0]]);
-    profileDesc.firstChild.textContent = profDescriptions[projectsOrdering[0]] + " project - check it out!";
+    if (audience != null) {
+        profileDesc.firstChild.textContent = "FOR YOU:  " + profDescriptions[projectsOrdering[0]] + " project - check it out!";
+    }
+    else {
+        profileDesc.firstChild.textContent = profDescriptions[projectsOrdering[0]] + " project - check it out!";
+    }
     profileImg.style["object-position"] = profAligns[projectsOrdering[0]];
 
     profileFig.children[0].children[0].setAttribute("href", profLinks[projectsOrdering[0]]);

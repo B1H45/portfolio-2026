@@ -581,10 +581,18 @@ nav::before {
     column-gap: clamp(2rem, 2vw, 4rem);
     row-gap: 2rem;
     max-width: var(--max-width);
-    padding: 10% 2rem 0rem 2rem;
     align-items: end;
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
+}
+
+.projects-section {
+    max-width: var(--max-width);
+    padding: 10% 2rem 0rem 2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .projects-main {
@@ -985,20 +993,28 @@ img.lock-ratio {
   padding: 20px 40px;
   font-family: monospace;
   font-size: 1.25rem;
-  border-radius: 2rem;
+  border-radius: 1rem;
   z-index: 2;
   white-space: pre-line;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
   cursor: pointer;
+  opacity: 0;
 }
 
 .closed:hover::before {
     transform: scale(1.05) translate(-50%, -50%);
+    opacity: 1;
 }
 
-.closed * {
+.closed:hover img {
+    filter: grayscale(100%);
+    opacity: 0.4;
+}
+
+.closed img {
   /* filter: grayscale(100%); */
-  opacity: 0.7;
+  opacity: 1;
+  transition: filter 0.3s ease, opacity 0.3s ease;
 }
 
 .anchorButton {
