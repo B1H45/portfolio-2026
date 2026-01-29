@@ -134,6 +134,10 @@ figcaption * {
     position: relative;
 }
 
+mux-player {
+    --controls: none;
+}
+
 .main {
     background: url("imgs/black-background.png");
     background-attachment: fixed;
