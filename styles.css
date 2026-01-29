@@ -855,9 +855,9 @@ ul.image-select button {
 }
 
 
-section {
-    /* margin-bottom: clamp(6rem, 8vw, 100rem); */
-}
+/* section {
+    margin-bottom: clamp(6rem, 8vw, 100rem);
+} */
 
 .section-large {
     margin-bottom: clamp(6rem, 8vw, 100rem);
