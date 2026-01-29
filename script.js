@@ -37,7 +37,7 @@ function customizeSite(target) {
         case "ea":
             resume = resumeLinks["TD"];
             name = "Electronic Arts";
-            message = "You've found a technical artist who is experienced in building reusable tools and procedural systems to enable creativity.";
+            message = "You've found a technical artist who is experienced in building reusable tools and procedural systems for graphics.";
             projectsOrdering = [4, 1, 0, 3, 2, 5];
             break;
         case "mike":
@@ -60,6 +60,7 @@ function customizeSite(target) {
         default:
             resume = resumeLinks["GENERAL"];
             projectsOrdering = [0, 1, 2, 3, 4, 5];
+            document.getElementById("ranking-note").style.display = "none";
             break;
     }
 
