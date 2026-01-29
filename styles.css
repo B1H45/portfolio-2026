@@ -119,6 +119,21 @@ figcaption * {
     z-index: 2;
 }
 
+.content-iframe {
+    width: 100%;
+    border: none;
+    aspect-ratio: 16 / 9;
+    right: 0;
+    position: absolute;
+}
+
+.iframe-parent {
+    width: 100%;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    position: relative;
+}
+
 .main {
     background: url("imgs/black-background.png");
     background-attachment: fixed;
@@ -969,14 +984,16 @@ img.lock-ratio {
   border-radius: 2rem;
   z-index: 2;
   white-space: pre-line;
+  transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
-.closed::before:hover {
+.closed:hover::before {
     transform: scale(1.05) translate(-50%, -50%);
 }
 
 .closed * {
-  filter: grayscale(100%);
+  /* filter: grayscale(100%); */
   opacity: 0.7;
 }
 
