@@ -114,7 +114,7 @@ figcaption * {
     max-width: none !important;
 }
 
-.vid-with-placeholder video {
+.vid-with-placeholder video, .vid-with-placeholder iframe {
     position: relative;
     z-index: 2;
 }
@@ -1091,6 +1091,10 @@ img.lock-ratio {
     width: 100%;
     object-fit: cover;
     object-position: center;
+}
+
+.vid-with-placeholder .ar1920x1080 {
+    aspect-ratio: 1920 / 1080;
 }
 
 .right-float {
