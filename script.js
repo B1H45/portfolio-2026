@@ -60,7 +60,9 @@ function customizeSite(target) {
         default:
             resume = resumeLinks["GENERAL"];
             projectsOrdering = [0, 1, 2, 3, 4, 5];
-            document.getElementById("ranking-note").style.display = "none";
+            if(document.getElementById("ranking-note")) {
+                document.getElementById("ranking-note").style.display = "none";
+            }
             break;
     }
 
