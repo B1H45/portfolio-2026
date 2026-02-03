@@ -1000,6 +1000,7 @@ img.lock-ratio {
   transition: transform 0.3s ease, opacity 0.3s ease;
   cursor: pointer;
   opacity: 0;
+  min-width: 24ch;
 }
 
 .closed:hover::before {

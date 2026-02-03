@@ -57,6 +57,11 @@ function customizeSite(target) {
             message = "You've found a technical designer with a passion for creating art with coding and expertise in creating exciting UI/UX experiences.";
             projectsOrdering = [4, 3, 0, 1, 2, 5];
             break;
+        case "lxn":
+            name = "Lexen";
+            resume = resumeLinks["GENERAL"];
+            projectsOrdering = [1, 0, 2, 3, 4, 5];
+            break;
         default:
             resume = resumeLinks["GENERAL"];
             projectsOrdering = [0, 1, 2, 3, 4, 5];
