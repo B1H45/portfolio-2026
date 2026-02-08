@@ -34,6 +34,10 @@
 body {
     background-color: var(--dark);
 }
+/* 
+* {
+    overflow: scroll !important;
+} */
 
 :root {
     --dark: #000000; /* Replace with your desired dark color */
@@ -168,17 +172,30 @@ nav ul {
     flex-direction: row;
 }
 
-nav a {
+nav a, nav button {
     display: block;
     border: none;
     background-color: var(--light);
-    padding: .9rem 4rem;
+    padding: .9rem 0rem;
     background-blend-mode: overlay;
     border-radius: 50px;
+    text-align: center;
 }
 
 nav li {
     z-index: 2; /* put above nav::before */
+    max-width: 12rem;
+    flex-grow: 1;
+    width: 100%;
+}
+
+nav ul {
+    gap: 1rem;
+    flex-wrap: nowrap;
+}
+
+nav.dropdown li:first-child {
+    width: fit-content;
 }
 
 nav {
@@ -190,20 +207,22 @@ nav {
     max-width: var(--max-width);
 }
 
-nav::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
-    height: .3rem;
-    width: calc(100% - 8rem);
-    background: var(--light);
-    border: none;
-    transform: translateY(-50%);
-    pointer-events: none;
-    z-index: 0;
-    border-radius: 50px;
+@media (width > 40rem) {
+    nav::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        height: .3rem;
+        width: calc(100% - 8rem);
+        background: var(--light);
+        border: none;
+        transform: translateY(-50%);
+        pointer-events: none;
+        z-index: 0;
+        border-radius: 50px;
+    }
 }
 
 .largeButton.washAnimate {
@@ -219,6 +238,54 @@ nav::before {
 
 .largeButton {
     max-width: fit-content;
+}
+
+nav.dropdown ul {
+    flex-direction: column;
+    transition: width 0.3s ease, height 0.3s ease;
+    /* overflow: hidden; */
+    flex-wrap: nowrap;
+    align-items: end;
+}
+
+@media (width > 40rem) {
+    .hamburger {
+        display: none;
+    }
+}
+
+.hamburger span {
+    font-size: 2rem;
+}
+
+.open .hamburger button {
+    background-color: var(--primary);
+}
+
+nav.dropdown li {
+    transition: transform 0.3s ease;
+}
+
+.openLi {
+    transform: translate(0) !important;
+}
+
+nav.dropdown li:not(:first-child) {
+    transform: translate(20rem);
+}
+
+.hamburger button {
+    padding: .2rem;
+    width: 4rem;
+}
+
+nav.dropdown {
+    /* background-color: var(--primary);
+    width: fit-content;
+    min-width: 12rem;
+    padding: 0;
+    border-radius: 50px;
+    overflow: hidden; */
 }
 
 /* WASH ANIMATIONS */
@@ -306,6 +373,18 @@ nav::before {
     height: 100%;
     position: relative;
     padding-bottom: 25%;
+}
+
+@media (width < 55rem) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+    .hero-right {
+        display: none;
+    }
+    section.projects-section {
+        padding-top: 15%;
+    }
 }
 
 #ben-hustler {
@@ -1157,4 +1236,56 @@ img.lock-ratio {
   50% {
     width: 320px;
   }
+}
+
+@media (width < 40rem) {
+    .big-text {
+        font-size: 1.25rem;
+    }
+    .big-h2 {
+        font-size: 3rem;
+    }
+
+    a, p, li, button, figcaption {
+        font-size: 1rem;
+    }
+
+
+    .main-content, .projects-section {
+        padding-left: clamp(1rem, 3vw, 2rem);
+        padding-right: clamp(1rem, 3vw, 2rem);
+    }
+    .project-thumbnail {
+        min-width: 100%;
+    }
+    .main {
+        padding-top: 4rem;
+    }
+    .projects-section {
+        gap: 0rem;
+    }
+    #about {
+        padding-top: 4rem;
+    }
+    .largeButton.washAnimate {
+        padding: .8rem 2rem;
+    }
+    .closed::before {
+        font-size: 1rem;
+        content: 'View final \aproduct only';
+        min-width: 12ch;
+        padding: 1rem 2rem;
+        top: 70%;
+    }
+}
+
+@media (width < 50rem) {
+    #about > div {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    #about > div > div {
+        order: -1;
+        padding-bottom: 2rem;
+    }
 }

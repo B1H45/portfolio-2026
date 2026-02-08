@@ -155,7 +155,7 @@ imageSelect.forEach(
 
 // GENERAL
 
-let navLinks = document.querySelectorAll("nav ul li a");
+let navLinks = document.querySelectorAll("nav ul li a, nav ul li button");
 
 let mouseX = 0, mouseY = 0;
 
@@ -462,3 +462,73 @@ if (vid) {
 }
 
 
+// DROPDOWN
+
+const dropDown = document.querySelector("#dropdown");
+const hamburger = document.querySelector(".hamburger");
+// hamburger.append(document.createElement("a"));
+// hamburger.children[0].textContent = "Menu";
+// hamburger.children[0].classList.add("washAnimate");
+// hamburger.children[0].append(document.createElement("span"));
+// hamburger.children[0].children[0].classList.add("instanceColoring");
+
+
+let dropDownEnabled = false;
+
+function checkDropDown() {
+    if (window.innerWidth < 40*16 && !dropDownEnabled) {
+        dropDownEnabled = true;
+        dropDown.classList.add("dropdown");
+        for (let i = 1; i < dropDown.children[0].children.length; i++) {
+            dropDown.children[0].children[i].style.display = "none";
+        }
+    } else if (window.innerWidth >= 40*16 && dropDownEnabled){
+        dropDownEnabled = false;
+        dropDown.classList.remove("dropdown");
+        for (let i = 1; i < dropDown.children[0].children.length; i++) {
+            dropDown.children[0].children[i].style.display = "block";
+        }
+        dropDown.classList.remove("open");
+        for (let i = 1; i < dropDown.children[0].children.length; i++) {
+            dropDown.children[0].children[i].classList.remove("openLi");
+
+        }
+    }
+}
+
+function updateDropdown() {
+    setTimeout(() => {
+            for (let i = 1; i < dropDown.children[0].children.length; i++) {
+                setTimeout(() => {
+                    if (dropDown.classList.contains("open")) {
+                        dropDown.children[0].children[i].classList.add("openLi");
+                    } else {
+                        dropDown.children[0].children[i].classList.remove("openLi");
+                    }
+                }, i*25);
+            }
+        }, 1);
+}
+
+hamburger.addEventListener("click", () => {
+    if (dropDownEnabled) {
+        for (let i = 1; i < dropDown.children[0].children.length; i++) {
+            dropDown.children[0].children[i].style.display = "block";
+            dropDown.children[0].children[i].addEventListener("click", () => {
+                dropDown.classList.remove("open");
+                updateDropdown();
+            });
+        }
+        dropDown.classList.toggle("open");
+        updateDropdown();
+        
+    }
+});
+
+window.addEventListener("resize", () => {
+    checkDropDown();
+});
+
+window.addEventListener("load", () => {
+    checkDropDown();
+});
