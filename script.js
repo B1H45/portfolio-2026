@@ -498,16 +498,23 @@ function checkDropDown() {
 
 function updateDropdown() {
     setTimeout(() => {
-            for (let i = 1; i < dropDown.children[0].children.length; i++) {
-                setTimeout(() => {
-                    if (dropDown.classList.contains("open")) {
-                        dropDown.children[0].children[i].classList.add("openLi");
-                    } else {
-                        dropDown.children[0].children[i].classList.remove("openLi");
-                    }
-                }, i*25);
+        for (let i = 1; i < dropDown.children[0].children.length; i++) {
+            setTimeout(() => {
+                if (dropDown.classList.contains("open")) {
+                    dropDown.children[0].children[i].classList.add("openLi");
+                } else {
+                    dropDown.children[0].children[i].classList.remove("openLi");
+                }
+            }, i*25);
+        }
+    }, 1);
+    setTimeout(() => {
+        for (let i = 1; i < dropDown.children[0].children.length; i++) {
+            if (!dropDown.classList.contains("open")) {
+                dropDown.children[0].children[i].style.display = "none";
             }
-        }, 1);
+        }
+    }, 200);
 }
 
 hamburger.addEventListener("click", () => {

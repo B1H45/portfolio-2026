@@ -246,6 +246,7 @@ nav.dropdown ul {
     /* overflow: hidden; */
     flex-wrap: nowrap;
     align-items: end;
+    pointer-events: none;
 }
 
 @media (width > 40rem) {
@@ -258,6 +259,10 @@ nav.dropdown ul {
     font-size: 2rem;
 }
 
+nav.dropdown li {
+    pointer-events: auto;
+}
+
 .open .hamburger button {
     background-color: var(--primary);
 }
@@ -268,10 +273,11 @@ nav.dropdown li {
 
 .openLi {
     transform: translate(0) !important;
+    display: block !important;
 }
 
 nav.dropdown li:not(:first-child) {
-    transform: translate(20rem);
+    transform: translate(20rem);    
 }
 
 .hamburger button {
@@ -475,12 +481,13 @@ nav.dropdown {
     width: 58%;
     transition: transform 0.3s ease , filter 0.3s ease;
     /* filter: saturate(0); */
+    align-items: end;
+    grid-template-rows: 1fr;
 }
 
 #profile-fig figcaption {
     /* max-width: 30rem; */
     margin-bottom: .5rem;
-    align-self: end;
 }
 
 .profile-img {
@@ -488,6 +495,7 @@ nav.dropdown {
     object-fit: cover;
     aspect-ratio: 1 / 1;
     object-position: left;
+    bottom: 0;
 }
 
 /* #profile-fig div a {
@@ -503,6 +511,11 @@ nav.dropdown {
     /* font-family: monospace; */
     align-items: end;
     /* justify-items: space-between; */
+    /* height: 200px; */
+}
+
+#profile-fig > a {
+    aspect-ratio: 1 / 1;
 }
 
 #profile-fig a .down-arrow {
@@ -514,6 +527,7 @@ nav.dropdown {
 #cappf {
     position: relative;
     font-size: 1.5rem;
+    max-height: 4.5rem;
 }
 
 #cappf:before {
