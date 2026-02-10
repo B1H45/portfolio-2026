@@ -81,7 +81,7 @@ function customizeSite(target) {
             projectsOrdering = [2, 1, 0, 4, 3, 5];
             break;
         case "rvezy":
-            name = "Wondershare";
+            name = "RVezY";
             resume = resumeLinks["GENERAL"];
             message = "You've found a Product Designer who combines solid design process with a sharp knack for technology.";
             projectsOrdering = [1, 0, 2, 3, 4, 5];
