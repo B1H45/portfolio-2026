@@ -52,15 +52,27 @@ function customizeSite(target) {
             projectsOrdering = [4, 2, 3, 0, 1, 5];
             break;
         case "kabam":
-            name = "Kabam";
+            name = "Freightcom";
             resume = resumeLinks["TD"];
-            message = "You've found a technical designer with a passion for creating art with coding and expertise in creating exciting UI/UX experiences.";
-            projectsOrdering = [4, 3, 0, 1, 2, 5];
+            // message = "You've found a technical designer with a passion for creating art with coding and expertise in creating exciting UI/UX experiences.";
+            // projectsOrdering = [4, 3, 0, 1, 2, 5];
+            projectsOrdering = [1, 0, 2, 3, 4, 5];
             break;
         case "lxn":
             name = "Lexen";
             resume = resumeLinks["GENERAL"];
             projectsOrdering = [1, 0, 2, 3, 4, 5];
+            break;
+        case "fc":
+            name = "Freightcom";
+            resume = resumeLinks["GENERAL"];
+            projectsOrdering = [1, 0, 2, 3, 4, 5];
+            break;
+        case "ws":
+            name = "Wondershare";
+            resume = resumeLinks["GENERAL"];
+            message = "You've found a motion graphics designer with a strong background in design fundamentals who LOVES to create smooth, polished animations.";
+            projectsOrdering = [3, 0, 5, 2, 4, 1];
             break;
         default:
             resume = resumeLinks["GENERAL"];
