@@ -74,6 +74,18 @@ function customizeSite(target) {
             message = "You've found a motion graphics designer with a strong background in design fundamentals who LOVES to create smooth, polished animations.";
             projectsOrdering = [3, 0, 5, 2, 4, 1];
             break;
+        case "konstruct":
+            name = "Konstruct";
+            resume = resumeLinks["GENERAL"];
+            message = "You've found a web developer who combines solid design process with a sharp knack for technology.";
+            projectsOrdering = [2, 1, 0, 4, 3, 5];
+            break;
+        case "rvezy":
+            name = "Wondershare";
+            resume = resumeLinks["GENERAL"];
+            message = "You've found a Product Designer who combines solid design process with a sharp knack for technology.";
+            projectsOrdering = [1, 0, 2, 3, 4, 5];
+            break;
         default:
             resume = resumeLinks["GENERAL"];
             projectsOrdering = [0, 1, 2, 3, 4, 5];
