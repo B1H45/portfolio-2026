@@ -215,7 +215,7 @@ const profileFig = document.querySelector("#profile-fig");
 if (profileImg && profileDesc) {
     const profthumbnails = ["imgs/fs1.png", "imgs/moa.png", "imgs/petAdop.png", "imgs/kt.png", "imgs/alienAttack.png", "imgs/posters.png"];
     const profDescriptions = ["UX design", "Experience design", "UI design", "Motion graphics", "Graphical programming", "Graphic design"];
-    const profAligns = ["left", "right", "left", "left", "left", "left"];
+    const profAligns = ["left", "right", "left", "center", "left", "left"];
     const profLinks = ["fuorisalone.html", "moaDesign.html", "petAdoption.html", "https://www.youtube.com/watch?v=E_Urt3SF4IQ", "https://youtu.be/f0ykj9HS9j0", "imgs/posters/allPosters.pdf"];
 
     profileImg.setAttribute("src", profthumbnails[projectsOrdering[0]]);
