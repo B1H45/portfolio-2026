@@ -86,6 +86,16 @@ function customizeSite(target) {
             message = "You've found a Product Designer who combines solid design process with a sharp knack for technology.";
             projectsOrdering = [1, 0, 2, 3, 4, 5];
             break;
+        case "amzn":
+            name = "Amazon";
+            resume = resumeLinks["GENERAL"];
+            projectsOrdering = [1, 0, 2, 3, 4, 5];
+            break;
+        case "opass":
+            name = "1Password";
+            resume = resumeLinks["GENERAL"];
+            projectsOrdering = [1, 0, 2, 3, 4, 5];
+            break;            
         default:
             resume = resumeLinks["GENERAL"];
             projectsOrdering = [0, 1, 2, 3, 4, 5];
