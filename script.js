@@ -500,6 +500,18 @@ if (vid) {
 
 const dropDown = document.querySelector("#dropdown");
 const hamburger = document.querySelector(".hamburger");
+
+const overlay = document.createElement("div");
+overlay.classList.add("overlay");
+dropDown.append(overlay);
+overlay.addEventListener("click", () => {
+    updateDropdown(closed=true);
+    overlay.classList.remove("open-overlay");
+    setTimeout(() => {
+        dropDown.classList.remove("open");
+    }, 200);
+});
+
 // hamburger.append(document.createElement("a"));
 // hamburger.children[0].textContent = "Menu";
 // hamburger.children[0].classList.add("washAnimate");
@@ -523,6 +535,7 @@ function checkDropDown() {
             dropDown.children[0].children[i].style.display = "block";
         }
         dropDown.classList.remove("open");
+        overlay.classList.remove("open-overlay");
         for (let i = 1; i < dropDown.children[0].children.length; i++) {
             dropDown.children[0].children[i].classList.remove("openLi");
 
@@ -530,11 +543,11 @@ function checkDropDown() {
     }
 }
 
-function updateDropdown() {
+function updateDropdown(closed=false) {
     setTimeout(() => {
         for (let i = 1; i < dropDown.children[0].children.length; i++) {
             setTimeout(() => {
-                if (dropDown.classList.contains("open")) {
+                if (dropDown.classList.contains("open") && !closed) {
                     dropDown.children[0].children[i].classList.add("openLi");
                 } else {
                     dropDown.children[0].children[i].classList.remove("openLi");
@@ -544,7 +557,7 @@ function updateDropdown() {
     }, 1);
     setTimeout(() => {
         for (let i = 1; i < dropDown.children[0].children.length; i++) {
-            if (!dropDown.classList.contains("open")) {
+            if (!dropDown.classList.contains("open") || closed) {
                 dropDown.children[0].children[i].style.display = "none";
             }
         }
@@ -556,12 +569,24 @@ hamburger.addEventListener("click", () => {
         for (let i = 1; i < dropDown.children[0].children.length; i++) {
             dropDown.children[0].children[i].style.display = "block";
             dropDown.children[0].children[i].addEventListener("click", () => {
-                dropDown.classList.remove("open");
-                updateDropdown();
+                updateDropdown(closed=true);
+                overlay.classList.remove("open-overlay");
+                setTimeout(() => {
+                    dropDown.classList.remove("open");
+                }, 200);
             });
         }
-        dropDown.classList.toggle("open");
-        updateDropdown();
+        overlay.classList.toggle("open-overlay");
+        if (dropDown.classList.contains("open")) {
+            updateDropdown(closed=true);
+            setTimeout(() => {
+                dropDown.classList.remove("open");
+            }, 500);
+        } else {
+            dropDown.classList.toggle("open");
+            updateDropdown();
+        }
+
         
     }
 });
