@@ -986,8 +986,8 @@ ul {
 .select-bars > *::before {
     content: '';
     position: absolute;
-    top: -.4rem;    /* Extend upward */
-    bottom: -.2rem; /* Extend downward */
+    top: -1rem;    /* Extend upward */
+    bottom: -.5rem; /* Extend downward */
     right: 0;
     left: 0;
     /* outline: 1px red solid; */

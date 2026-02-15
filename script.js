@@ -710,18 +710,18 @@ selectors.forEach((selector)=> {
     );
 
 
-    //ANIMATED CYCLE!!!!
-    // let selectedInpt = 0;
+    // ANIMATED CYCLE!!!!
+    let selectedInpt = 0;
 
-    // setInterval(() => {
-    //     selected = selectedInpt%3;
-    //     cycleSelector(selectorBars[selectedInpt%3], selectorBars);
-    //     selectedInpt ++;
+    setInterval(() => {
+        selected = selectedInpt%3;
+        cycleSelector(selectorBars[selectedInpt%3], selectorBars);
+        selectedInpt ++;
 
-    //     setTimeout( () => {
-    //         updateSelectorBox(selector, selected);
-    //     }, 1);
-    // }, 3000); // Change slide every 3 seconds
+        setTimeout( () => {
+            updateSelectorBox(selector, selected);
+        }, 1);
+    }, 6000); // Change slide every 3 seconds
 });
 
 
