@@ -598,3 +598,132 @@ window.addEventListener("resize", () => {
 window.addEventListener("load", () => {
     checkDropDown();
 });
+
+// SELECTOR BARS
+
+const selectors = document.querySelectorAll(".image-select");
+
+function updateSelectorBox(selector, selected) {
+    selector.children[selected].style.width = "100%";
+    const currentWidth = selector.offsetWidth;
+
+    selector.style.width = 'auto';
+    selector.style.minWidth = "15rem";
+
+    let node;
+
+    const walker = document.createTreeWalker(
+        selector.children[selected],
+        NodeFilter.SHOW_TEXT,
+        null
+    );
+
+    node = walker.nextNode();
+
+    let range = document.createRange();
+    range.selectNodeContents(node);
+    let rect = range.getBoundingClientRect();
+    console.log(rect.width); 
+
+    selector.style.transition = 'none';
+    selector.style.minWidth = '0';
+    selector.style.width = currentWidth + 'px';
+    
+    selector.offsetHeight;
+    
+    selector.style.transition = '';
+    selector.style.width = rect.width + 'px';
+    selector.lastElementChild.style.width = rect.width + 'px';
+    selector.children[selected].style.width = rect.width + 'px';
+}
+
+
+function cycleSelector(item, selectorBars) {
+    selectorBars.forEach(
+        (otherItem) => {
+            if (item.parentElement.parentElement.getAttribute("for") === otherItem.parentElement.parentElement.getAttribute("for")) {
+                otherItem.classList.remove("active-bar");
+            }
+        }
+    );
+    item.classList.add("active-bar");
+    let targetImg = document.querySelector("#" +item.parentElement.parentElement.getAttribute("for"));
+    targetImg.src = item.getAttribute("img-src");
+
+    for (i = 0; i < item.parentElement.parentElement.children.length; i++) {
+        child = item.parentElement.parentElement.children[i];
+        if (child.classList.contains("visible")) {
+            child.classList.remove("visible");
+        }
+        console.log(item.getAttribute("opt"));
+        if (i == item.getAttribute("opt")) {
+            child.classList.add("visible");
+        }
+    }
+}
+
+selectors.forEach((selector)=> {
+    let selected = 0;
+
+    updateSelectorBox(selector, selected);
+    window.addEventListener("resize", () => {
+        updateSelectorBox(selector, selected);
+    });
+    window.addEventListener("load", () => {
+        updateSelectorBox(selector, selected);
+    });
+    window.addEventListener("click", () => {
+        setTimeout( () => {
+            updateSelectorBox(selector, selected);
+        }, 1);
+    })
+
+    const selectorBars = Array.from(selector.lastElementChild.children);
+
+    selectorBars.forEach(
+        (item) => {
+            item.addEventListener("click", () => {
+                selected = item.getAttribute("opt");
+                selectorBars.forEach(
+                    (otherItem) => {
+                        if (item.parentElement.parentElement.getAttribute("for") === otherItem.parentElement.parentElement.getAttribute("for")) {
+                            otherItem.classList.remove("active-bar");
+                        }
+                    }
+                );
+                item.classList.add("active-bar");
+                let targetImg = document.querySelector("#" +item.parentElement.parentElement.getAttribute("for"));
+                targetImg.src = item.getAttribute("img-src");
+
+                for (i = 0; i < item.parentElement.parentElement.children.length; i++) {
+                    child = item.parentElement.parentElement.children[i];
+                    if (child.classList.contains("visible")) {
+                        child.classList.remove("visible");
+                    }
+                    console.log(item.getAttribute("opt"));
+                    if (i == item.getAttribute("opt")) {
+                        child.classList.add("visible");
+                    }
+                }
+            });
+        }
+    );
+
+
+    //ANIMATED CYCLE!!!!
+    // let selectedInpt = 0;
+
+    // setInterval(() => {
+    //     selected = selectedInpt%3;
+    //     cycleSelector(selectorBars[selectedInpt%3], selectorBars);
+    //     selectedInpt ++;
+
+    //     setTimeout( () => {
+    //         updateSelectorBox(selector, selected);
+    //     }, 1);
+    // }, 3000); // Change slide every 3 seconds
+});
+
+
+
+
