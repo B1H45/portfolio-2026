@@ -604,6 +604,29 @@ window.addEventListener("load", () => {
 const selectors = document.querySelectorAll(".image-select");
 
 function updateSelectorBox(selector, selected) {
+
+    // let maxSizeIndex = 0;
+    // let maxSize = 0;
+    // for (i = 0; i < selector.children.size-1; i++) {
+    //     let child = Array.from(selector.children)[i];
+    //     if (child.style.display == "none") {
+    //         child.style.display = "flex";
+
+    //         if (child.getBoundingClientRect().height > maxSize) {
+    //             maxSizeIndex = i;
+    //             maxSize = child.getBoundingClientRect().height;
+    //         }
+
+    //         child.style.display == "none"
+    //     } else {
+    //         if (child.getBoundingClientRect().height > maxSize) {
+    //             maxSizeIndex = i;
+    //             maxSize = child.getBoundingClientRect().height;
+    //         }
+    //     }
+
+    // }
+ 
     selector.children[selected].style.width = "100%";
     const currentWidth = selector.offsetWidth;
 
@@ -711,17 +734,17 @@ selectors.forEach((selector)=> {
 
 
     // ANIMATED CYCLE!!!!
-    let selectedInpt = 0;
+    // let selectedInpt = 0;
 
-    setInterval(() => {
-        selected = selectedInpt%3;
-        cycleSelector(selectorBars[selectedInpt%3], selectorBars);
-        selectedInpt ++;
+    // setInterval(() => {
+    //     selected = selectedInpt%3;
+    //     cycleSelector(selectorBars[selectedInpt%3], selectorBars);
+    //     selectedInpt ++;
 
-        setTimeout( () => {
-            updateSelectorBox(selector, selected);
-        }, 1);
-    }, 6000); // Change slide every 3 seconds
+    //     setTimeout( () => {
+    //         updateSelectorBox(selector, selected);
+    //     }, 1);
+    // }, 6000); // Change slide every 3 seconds
 });
 
 

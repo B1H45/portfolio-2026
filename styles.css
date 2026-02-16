@@ -938,6 +938,8 @@ ul {
     gap: 1rem;
     position: relative;
     transition: width 0.3s ease;
+    max-width: 100%;
+    height: max-content;
 }
 
 .select-bars {
@@ -952,6 +954,10 @@ ul {
 .image-select:hover > .select-bars {
     transform: scaleY(5);
     /* height: 1.5rem; */
+}
+
+.image-select:focus > .select-bars {
+    transform: scale(1);        
 }
 
 .image-select:hover > p.visible {
@@ -991,6 +997,17 @@ ul {
     right: 0;
     left: 0;
     /* outline: 1px red solid; */
+}
+
+.freestanding-image-select {
+    align-self: flex-start;
+    justify-content: flex-start;     
+    gap: .7rem; 
+}
+
+.freestanding-image-select .image-select > *.visible {
+    text-align: left;
+    max-width: max-content !important;
 }
 
 @media (width < 85rem) {
