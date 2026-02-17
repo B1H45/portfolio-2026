@@ -1215,6 +1215,7 @@ img.lock-ratio {
 
 .closed figure > a::before {
   content: 'View final product only \a(Case study in progress)';
+  content: 'View final product only';
   position: absolute;
   top: 50%;
   left: 50%;
