@@ -1,0 +1,531 @@
+h3 {
+    font-size: 1.5rem;
+}
+
+.header-container {
+    background-color: var(--primary);
+    color: var(--light);
+}
+
+.details-label {
+    color: var(--light);
+    min-width: 0;
+    margin-right: 5rem;
+    margin-bottom: 1rem;
+}
+
+img {
+    object-fit:cover;
+}
+
+.header-content {
+    max-width: calc(100rem + (100vw - 100rem)/2);
+    flex-grow: 1;
+    display: flex;
+    background-image: url("../img/chomper4.jpg");
+    background-size: cover;
+    background-position: center;
+    height: calc(300px + 20vw);
+}
+
+.duke-page .header-content{
+    background-image: url("../img/Duke.jpg");
+}
+.sammy-page .header-content{
+    background-image: url("../img/Sammy.jpg");
+}
+.bobbi-page .header-content{
+    background-image: url("../img/bobbi-1.jpg");
+}
+.action-jackson-page .header-content{
+    background-image: url("../img/Action-Jackson-0.jpg");
+    background-position: right;
+}
+.rocky-page .header-content{
+    background-image: url("../img/rocky-1.jpg");
+    background-position: right;
+}
+
+.details {
+    display: flex;
+    justify-content: left;
+    max-width: 97.5rem;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.details-container {
+    display:grid;
+    justify-content: left;
+}
+
+article {
+    justify-content: center;
+}
+
+body {
+    background-color: var(--bg);
+}
+
+* {
+    box-sizing: border-box;
+    margin:0;
+}
+
+.compatibility-list > ul > li {
+    font-weight: 600;
+    font-style: normal;
+}
+
+.details-list > div > dt, .details-list > div > dd {
+    display:inline;
+}
+
+.body-container {
+    background-color: var(--secondary);
+    padding: 6rem 6rem;
+}
+
+.details-list > div {
+}
+
+dd {
+    font-weight: 600;
+}
+
+.bottom-content {
+    color: var(--light)
+}
+
+header {
+    overflow: hidden;
+    display: flex;
+    justify-content: right;
+    background-color: var(--primary);
+}
+
+.top-image {
+    background-image: url("../img/chomper4.jpg");
+    background-position: center;
+    background-size:auto;
+    flex-grow: 1;
+    height: calc(400px + 12vw);
+}
+
+.top-bar {
+    overflow:visible;
+    display:flex;
+    align-items: center;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 4vw;
+    /* calc from https://developer.mozilla.org/en-US/docs/Web/CSS/calc*/
+    max-width: calc(40rem + 8vw);
+}
+
+section {
+    /* Overflow cutoff found at https://stackoverflow.com/questions/51679982/how-to-cut-off-an-image-at-the-edge-of-the-screen */
+    overflow-x: hidden;
+}
+
+.back-button {
+    border-radius: .5rem;
+
+    /* text-underline-offset from https://stackoverflow.com/questions/1734618/how-to-increase-the-gap-between-text-and-underlining-in-css*/
+    text-underline-offset: .4rem;
+    flex-grow: 0;
+    text-align: left;
+
+    transition-property: text-underline-offset, font-size, margin-left;
+    transition-duration: .1s;
+
+    background-color: var(--light);
+    color: var(--primary);
+    transition: all 0.5s ease;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    font-size: 1.2rem;
+    line-height: 1;
+    text-decoration: none;
+    display: inline-block;
+    margin: 5rem;
+    height: min-content;
+}
+
+.category {
+    box-sizing:content-box;
+    color: var(--bg);
+    background-color: var(--dark);
+    padding: .5rem 1.5rem;
+    padding-right: 15rem;
+    margin-right:-15rem;
+    flex-grow: 0;
+    flex-basis: content;
+}
+
+.body-container > * {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.idNumber {
+    font-weight: 400;
+}
+
+ul {
+    /* List style from https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/list-style*/
+    list-style: none;
+}
+
+.compatibility-list > ul {
+    display:flex;
+    padding-left: 0;
+    max-width: 40rem;
+
+    /* Flex wrap from https://www.w3schools.com/cssref/css3_pr_flex-wrap.php */
+    flex-wrap: wrap;
+}
+
+.details-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0rem 0rem;
+}
+
+.header-top {
+    max-width: 40rem;
+}
+
+.header-container > * {
+    margin:auto;
+}
+
+@media (width > 31.5rem) {
+    .details-list {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+.compatibility-list > ul > li {
+    flex-grow: 1;
+    flex-shrink: 0;
+    margin-right: 1rem;
+}
+
+.compatibility-list {
+    margin: 2rem auto 0rem auto;
+    display: flex;
+    position:absolute;
+    background-color: var(--secondary);
+    z-index: 200;
+    align-items: center;
+}
+
+@media (width>35rem) {
+    .compatibility-list {
+        grid-template-columns: 1fr 3.5fr;
+    }
+}
+
+.full-bleed {
+    background-image: url("../img/chomper4.jpg");
+    background-size: cover;
+    background-position: left center;
+}
+
+@media (width <= 63rem) {
+
+    h3 {
+        font-size: 1.25rem;
+    }
+
+    .header-container {
+        padding: 3rem 1rem;
+    }
+
+    .header-content {
+        flex-direction: column;
+        justify-content: center;
+        background-position: center bottom;
+        background-size: cover;
+        height: calc(400px + 30vw);
+    }
+
+    .back-button {
+        margin: 1rem;
+    }
+
+    .back-button-container {
+        background-image: url("../img/chomper4.jpg");
+        background-size: cover;
+        background-position: center center;
+        flex-grow: 1;
+        display: grid;
+        justify-items: right;
+    }
+
+    .duke-page .back-button-container {
+        background-image: url("../img/Duke.jpg");
+    }
+    .sammy-page .back-button-container {
+        background-image: url("../img/Sammy.jpg");
+    }
+    .bobbi-page .back-button-container {
+        background-image: url("../img/bobbi-1.jpg");
+    }
+    .action-jackson-page .back-button-container {
+        background-image: url("../img/Action-Jackson-0.jpg");
+        background-position: right;
+    }
+    .rocky-page .back-button-container{
+        background-image: url("../img/rocky-1.jpg");
+    }
+    
+    
+
+    .img-container {
+        max-height: 29rem;
+        height: 90vw;
+        display: grid;
+        justify-items: center;
+    }
+
+    .img-container img {
+        max-width: 39.5rem;
+        max-height: 29rem;
+        height: 90vw;
+        margin-top: 1rem;
+        position: absolute;
+        width: calc(100vw - 2rem);
+    }
+
+    .body-container {
+        padding: 1rem;
+        padding-top: 3rem;
+    }
+
+    .details {
+        padding: 1rem 0;
+    }
+
+    .details-label {
+        flex-basis: 100%;
+        margin-bottom: .5rem;
+        margin-top: .5rem;
+    }
+
+    .body-container > * {
+        max-width: 39.5rem;
+    }
+
+    .header-container > * {
+        max-width: 39.5rem;
+    }
+
+    .compatibility-list {
+        padding: 1rem;
+        column-gap: 2rem;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+        justify-self: right;
+        max-width: content;
+    }
+
+
+}
+
+.back-button:hover {
+    color: var(--highlight);
+    transform: scale(1.1);
+}
+
+.back-button:focus {
+    color: var(--light);
+    background-color: var(--primary);
+    transform: scale(1.1);
+}
+
+/* 57rem switch to desktop */
+
+@media (width > 63rem) {
+
+    .idNumber {
+        font-size: 1rem;
+    }
+
+    li, dt, dd {
+    }
+
+    .back-button:active {
+    }
+
+    .header-container {
+
+        /* Order used to swap elements https://stackoverflow.com/questions/7425665/switching-the-order-of-block-elements-with-css*/
+        order: -1;
+        padding: 2rem;
+        padding-right: 4rem;
+        display:flex;
+        flex-direction: column;
+        justify-content: end;
+    }
+
+    .header-container > * {
+        margin:0;
+        flex-grow: 0;
+    }
+
+    #action-jackson-title {
+        max-width: 26rem;
+    }
+
+    .idNumber {
+        margin: 3rem 0;
+        max-width: none;
+    }
+
+    .header-container > .subheading {
+        text-align: left;
+    }
+
+    #space {
+        flex-basis: 0px;
+        flex-grow: .5;
+    }
+
+    .reorderer {
+        display: flex;
+        margin-right:auto;
+        margin-left:auto;
+        max-width: 1600px;
+        padding-right:2rem;
+        margin-bottom: 10rem;
+    }
+
+    img {
+        min-width: 0;
+        height: 400px;
+        flex-basis: 48vw;
+        flex-grow: 0.5;
+        max-width: 829px;
+    }
+
+    .back-button-container {
+        flex-grow: 1;
+        display: grid;
+    }
+
+    .details-list {
+        display: flex;
+        flex-wrap: wrap;
+        color: var(--light);
+        column-gap: 1.5rem;
+        row-gap: .5rem;
+    }
+
+    .top-bar {
+        max-width: 1600px;
+        display:grid;
+        
+        margin-left: auto;
+        margin-right: auto;
+        padding-right: 2rem;
+        padding-left: 0;
+
+        /* https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/overflow-x */
+        overflow-x: visible;
+
+    }
+
+    .back-button {
+        justify-self: right;
+    }
+
+    .category {
+        padding: .5rem 0rem;
+        align-self: right;
+        text-align: right;
+        max-width: none;
+
+        margin: 3vw 0;
+
+        margin-right: -20rem;
+        padding-right:20rem;
+
+        /* Background image and shifting techniques at https://www.w3schools.com/cssref/pr_background-position.php */
+        background-image: url("../img/greyBar.png");
+        background-color: var(--bg);
+        background-repeat: no-repeat;
+        background-position: calc(100% + 82rem) top;
+        overflow-y: hidden;
+    }
+
+    .bottom {
+        background-color: var(--secondary);
+        background: linear-gradient(
+        to left,
+        var(--secondary) 50%,
+        var(--bg) 50%
+        );
+        padding: 4rem 0rem;
+    }
+
+    .bottom-content {
+        max-width: 100rem;
+        margin-left:auto;
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        margin-right: auto;
+    }
+
+    .img-container {
+        padding: 4rem 0rem;
+        background-color: var(--bg);
+        z-index: 100;
+    }
+
+    .img-container img {
+        width: 105%;
+        height: 500px;
+        overflow-x: visible;
+    }
+
+    .bottom-content > img {
+        max-width: 525px;
+        width: 40vw;
+        margin-left: 2rem;
+        min-height: 100%;
+    }
+
+    .compatibility-list {
+        position:absolute;
+        background-color: var(--secondary);
+        z-index: 200;
+        margin-top: -7rem;
+        padding: 1.5rem 2rem;
+        margin-left: -20rem;
+        padding-left: 22rem;
+        gap: 2rem;
+    }
+
+    @media (width < 1310px) {
+        .compatibility-list {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .body-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .body-container > * {
+        margin-left: 0;
+        max-width: 50rem;
+        margin-bottom: 2rem;
+    }
+
+}

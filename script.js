@@ -1,4 +1,195 @@
-let navLinks = document.querySelectorAll("nav ul li a");
+// QUERY PARAMS
+
+const params = new URLSearchParams(window.location.search);
+const target = params.get("for");
+let greeter = document.querySelector("#greeter");
+let logline = document.querySelector("#logline");
+
+if (target) {
+    // console.log(target);
+    sessionStorage.setItem("audience", target);
+}
+
+let audience = sessionStorage.getItem("audience");
+let projectsOrdering = [0, 1, 2, 3, 4, 5];
+let resumeButton = document.querySelector("#resume-link");
+let resumeLinks = {
+    "TD": "TD-Resume.pdf",
+    "GENERAL": "General-Resume.pdf",
+}
+
+customizeSite(audience);
+
+ 
+
+function customizeSite(target) {
+    
+    let name;
+    let message;
+    let resume;
+
+    switch(target) {
+        case "msi":
+            name = "Motorola";
+            resume = resumeLinks["GENERAL"];
+            projectsOrdering = [1, 0, 2, 3, 4, 5];
+            break;
+        case "ea":
+            resume = resumeLinks["TD"];
+            name = "Electronic Arts";
+            message = "You've found a technical artist who is experienced in building reusable tools and procedural systems for graphics.";
+            projectsOrdering = [4, 1, 0, 3, 2, 5];
+            break;
+        case "mike":
+            resume = resumeLinks["GENERAL"];
+            name = "Mike";
+            projectsOrdering = [5, 4, 3, 2, 1, 0];
+            break;
+        case "ilm":
+            name = "ILM";
+            resume = resumeLinks["TD"];
+            message = "You've found a software engineer with a passion for 3D and proficiency in creating human-centered UI/UX experiences.";
+            projectsOrdering = [4, 2, 3, 0, 1, 5];
+            break;
+        case "kabam":
+            name = "Freightcom";
+            resume = resumeLinks["TD"];
+            // message = "You've found a technical designer with a passion for creating art with coding and expertise in creating exciting UI/UX experiences.";
+            // projectsOrdering = [4, 3, 0, 1, 2, 5];
+            projectsOrdering = [1, 0, 2, 3, 4, 5];
+            break;
+        case "lxn":
+            name = "Lexen";
+            resume = resumeLinks["GENERAL"];
+            projectsOrdering = [1, 0, 2, 3, 4, 5];
+            break;
+        case "fc":
+            name = "Freightcom";
+            resume = resumeLinks["GENERAL"];
+            projectsOrdering = [1, 0, 2, 3, 4, 5];
+            break;
+        case "ws":
+            name = "Wondershare";
+            resume = resumeLinks["GENERAL"];
+            message = "You've found a motion graphics designer with a strong background in design fundamentals who LOVES to create smooth, polished animations.";
+            projectsOrdering = [3, 0, 5, 2, 4, 1];
+            break;
+        case "konstruct":
+            name = "Konstruct";
+            resume = resumeLinks["GENERAL"];
+            message = "You've found a web developer who combines solid design process with a sharp knack for technology.";
+            projectsOrdering = [2, 1, 0, 4, 3, 5];
+            break;
+        case "rvezy":
+            name = "RVezY";
+            resume = resumeLinks["GENERAL"];
+            message = "You've found a Product Designer who combines solid design process with a sharp knack for technology.";
+            projectsOrdering = [1, 0, 2, 3, 4, 5];
+            break;
+        case "amzn":
+            name = "Amazon";
+            resume = resumeLinks["GENERAL"];
+            projectsOrdering = [1, 0, 2, 3, 4, 5];
+            break;
+        case "opass":
+            name = "1Password";
+            resume = resumeLinks["GENERAL"];
+            projectsOrdering = [1, 0, 2, 3, 4, 5];
+            break;            
+        default:
+            resume = resumeLinks["GENERAL"];
+            projectsOrdering = [0, 1, 2, 3, 4, 5];
+            if(document.getElementById("ranking-note")) {
+                document.getElementById("ranking-note").style.display = "none";
+            }
+            break;
+    }
+
+    console.log(`Customizing site for: ${name || "general audience"}`);
+
+    if (resumeButton) {
+        resumeButton.setAttribute("href", "pdfs/" + resume);
+    }
+    if (greeter)
+        greeter.textContent = `Hey ${name || "there"}!`;
+    if (message && logline)
+        logline.textContent = message;
+
+}
+
+
+// IMAGE SELECTORS
+
+let imageSelect = document.querySelectorAll("ul.image-select li");
+
+imageSelect.forEach(
+    (item) => {
+        item.addEventListener("click", () => {
+            imageSelect.forEach(
+                (otherItem) => {
+                    if (item.parentElement.getAttribute("for") === otherItem.parentElement.getAttribute("for")) {
+                        otherItem.classList.remove("active");
+                    }
+                }
+            );
+            item.classList.add("active");
+            let targetImg = document.querySelector("#" +item.parentElement.getAttribute("for"));
+            targetImg.src = item.getAttribute("img-src");
+        });
+    }
+);
+
+// SCROLL PUSH AWAY EFFECT
+
+// let mainHeight;
+// const main = document.querySelector('.main');
+// const projectsMain = document.querySelector('.projects-main');
+// const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+
+// // Wait for everything to load
+// window.addEventListener('load', () => {
+//   setTimeout(() => {
+//         mainHeight = main ? main.getBoundingClientRect().height : 0;
+//   }, 100);
+// });
+
+// window.addEventListener('resize', () => {
+//     setTimeout(() => {
+//         mainHeight = main ? main.getBoundingClientRect().height : 0;
+//     }, 100);
+// });
+
+// window.addEventListener('scroll', () => {
+//   if (!main) return;
+  
+//   const scrolled = window.scrollY;
+  
+//   // Only transform while scrolled distance is less than main height
+//   if (scrolled < mainHeight - 3.5*rootFontSize) { // 4rem in px
+//     // main.style.transform = `translateY(-${scrolled}px)`;
+//     projectsMain.style.position = 'fixed';
+//     main.style.position = 'relative';
+//     main.style.top = ""; // 4rem in px
+//     projectsMain.style.top = `4rem`;
+
+
+//   } else {
+//     // Once past main, remove transform and let it scroll normally
+//     // main.style.transform = 'none';
+//     projectsMain.style.position = 'relative';
+//     main.style.position = 'fixed';
+//     // main.style.top = `-${mainHeight + 2*rootFontSize}px`;
+
+//     // main.offsetHeight;
+//     projectsMain.style.top = `7rem`;
+//     console.log(`mainHeight: ${mainHeight}px`);
+//     main.style.top = `calc(-${mainHeight}px + 3.5rem)`;
+//   }
+// });
+
+// GENERAL
+
+let navLinks = document.querySelectorAll("nav ul li a, nav ul li button");
 
 let mouseX = 0, mouseY = 0;
 
@@ -6,6 +197,62 @@ document.addEventListener('mousemove', (e) => {
   mouseX = e.clientX;
   mouseY = e.clientY;
 });
+
+// THUMBNAIL ORDERING + SUGGESTED THUMBNAIL
+
+// Get the parent container of all thumbnails
+let container;
+if (document.querySelector('.project-thumbnail')) {
+    container = document.querySelector('.project-thumbnail').parentElement;
+
+    // Get all thumbnails
+    const thumbnails = Array.from(document.querySelectorAll('.project-thumbnail'));
+
+    let thumbnailsSorted = [...thumbnails];
+
+    // Sort: non-closed first, then closed
+    // projectsOrdering.sort((a, b) => {
+    // const aIsClosed = thumbnails[a].classList.contains('closed');
+    // const bIsClosed = thumbnails[b].classList.contains('closed');
+    
+    // if (aIsClosed && !bIsClosed) return 1;  // a goes after b
+    // if (!aIsClosed && bIsClosed) return -1; // a goes before b
+    // return 0; // keep original order
+    // });
+
+    for (i = 0; i < projectsOrdering.length; i ++) {
+        thumbnailsSorted[i] = thumbnails[projectsOrdering[i]];
+    }
+
+    // Re-append in sorted order
+    thumbnailsSorted.forEach(thumbnail => {
+    container.appendChild(thumbnail);
+    });
+}
+
+const profileImg = document.querySelector("#profile-img");
+const profileDesc = document.querySelector("#cappf");
+const profileFig = document.querySelector("#profile-fig");
+
+if (profileImg && profileDesc) {
+    const profthumbnails = ["imgs/fs1.png", "imgs/moa.png", "imgs/petAdop.png", "imgs/kt.png", "imgs/alienAttack.png", "imgs/posters.png"];
+    const profDescriptions = ["UX design", "Experience design", "UI design", "Motion graphics", "Graphical programming", "Graphic design"];
+    const profAligns = ["left", "right", "left", "center", "left", "left"];
+    const profLinks = ["fuorisalone.html", "moaDesign.html", "petAdoption.html", "https://www.youtube.com/watch?v=E_Urt3SF4IQ", "https://youtu.be/f0ykj9HS9j0", "imgs/posters/allPosters.pdf"];
+
+    profileImg.setAttribute("src", profthumbnails[projectsOrdering[0]]);
+    if (audience != null) {
+        profileDesc.firstChild.textContent = "FOR YOU:  " + profDescriptions[projectsOrdering[0]] + " project - check it out!";
+    }
+    else {
+        profileDesc.firstChild.textContent = profDescriptions[projectsOrdering[0]] + " project - check it out!";
+    }
+    profileImg.style["object-position"] = profAligns[projectsOrdering[0]];
+
+    profileFig.children[0].children[0].setAttribute("href", profLinks[projectsOrdering[0]]);
+    profileFig.children[1].setAttribute("href", profLinks[projectsOrdering[0]]);
+}
+
 
 //FOLLOWER ANIMATION!!!
 
@@ -58,7 +305,7 @@ waInstances.forEach(
         instance.append(instanceContent);
         instance.setAttribute("data-label", instance.textContent);
 
-        let instanceColoringSize = 15; //rem
+        let instanceColoringSize = instanceColoring.getBoundingClientRect().width / parseFloat(getComputedStyle(document.documentElement).fontSize); //rem
 
         instanceColoring.style.width = `${instanceColoringSize}rem`;
         instanceColoring.style.height = `${instanceColoringSize}rem`;
@@ -75,11 +322,11 @@ waInstances.forEach(
 
         instance.addEventListener("mouseenter", () => {
             rect = instance.getBoundingClientRect();
-            let xOffset = Math.cos(Math.atan2(posY, posX))*300;
-            let yOffset = Math.sin(Math.atan2(posY, posX))*300;
+            let xOffset = Math.cos(Math.atan2(posY, posX))*instanceColoringSize*16;
+            let yOffset = Math.sin(Math.atan2(posY, posX))*instanceColoringSize*16;
 
             if (instance.id == "clear") {
-                console.log(`xOffset: ${xOffset}, yOffset: ${yOffset}`);
+                // console.log(`xOffset: ${xOffset}, yOffset: ${yOffset}`);
             }
 
             instance.children[0].classList.add("disableTransition");
@@ -99,8 +346,8 @@ waInstances.forEach(
 
         instance.addEventListener("mouseleave", () => {
             rect = instance.getBoundingClientRect();
-            let xOffset = Math.cos(Math.atan2(posY, posX))*300;
-            let yOffset = Math.sin(Math.atan2(posY, posX))*300;
+            let xOffset = Math.cos(Math.atan2(posY, posX))*instanceColoringSize*16;
+            let yOffset = Math.sin(Math.atan2(posY, posX))*instanceColoringSize*16;
 
             instance.children[0].style.left = `calc((${xOffset + rect.width/2}px - ${instanceColoringSize/2}rem))`;
             instance.children[0].style.top = `calc((${yOffset + rect.height/2}px - ${instanceColoringSize/2}rem))`;
@@ -109,3 +356,398 @@ waInstances.forEach(
         });
     }
 );
+
+// LINES1 SCROLL ANIMATION
+const lines1 = document.getElementById('lines1');
+const main = document.querySelector('.main');
+
+window.addEventListener('scroll', () => {
+  if (!main || !lines1) return;
+  
+  const scrolled = window.scrollY;
+  const moveDistance = scrolled * 0.5; // Adjust multiplier for speed
+  
+  lines1.style.transform = `translateX(${moveDistance}px)`;
+});
+
+
+// SLIDEY LINES
+
+const mainLine = document.querySelector('#slidey-text-line');
+const otherLines = document.querySelectorAll('.slidey-line');
+
+if (mainLine) {
+    window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY;
+        const focusOffset = window.innerHeight/2 - mainLine.getBoundingClientRect().top - mainLine.getBoundingClientRect().height / 2;
+        // console.log(`focusOffset: ${Math.pow(focusOffset, 3/2)}px`);
+
+        // console.log(Math.round(Math.log2(focusOffset)));
+        // mainLine.style.transform = `translateX(calc(28rem + ${Math.pow(focusOffset, 3)/200000}px))`;
+
+        otherLines.forEach(
+            (line, index) => {
+                let direction = (index % 2 === 0) ? -1 : 1;
+                line.style.transform = `translateX(calc(${direction * 28}rem + ${direction * Math.sign(focusOffset) * Math.pow(Math.abs(focusOffset), 3/2)/60}px))`;
+            }
+        );
+    });
+}
+
+window.addEventListener('load', () => {
+  setTimeout(() => {
+        mainHeight = mainLine ? mainLine.getBoundingClientRect().height : 0;
+  }, 100);
+});
+
+
+// BACKGROUND FOCUS ANIMATION
+
+function mapRange(value, start1, stop1, start2, stop2, max, min) {
+  const newValue = ((value - start1) / (stop1 - start1)) * (stop2 - start2) + start2;
+
+  return Math.max(Math.min(newValue, max), min);
+}
+
+const focusBg = document.querySelectorAll('.background-focus-animate');
+const vid = document.querySelector(".focus-in-background video");
+if (vid) {
+    const hwRatio = vid.height / vid.width;
+    console.log(`hwRatio: ${hwRatio}`);
+    const focusOffset = focusBg[0].children[0].getBoundingClientRect().top + focusBg[0].children[0].getBoundingClientRect().height;
+
+
+    if (focusOffset > 0) {
+
+        focusBg.forEach((bg) => {
+                bg.children[1].style.position = "fixed";
+                bg.children[1].style.left = `calc( (4rem + max(100vw - var(--max-width), 0px))/2 * ${0})`;             
+                bg.children[1].style.top = `0`;
+                bg.children[1].style.height = Math.max(window.innerHeight, hwRatio * window.innerWidth) + "px";
+            }
+        );
+    }
+
+    window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY;
+        if (focusBg.length > 0) {
+            focusBg.forEach(
+                (bg) => {
+
+
+                    const focusOffset = bg.children[0].getBoundingClientRect().top + bg.children[0].getBoundingClientRect().height;
+                    console.log(`focusOffset: ${focusOffset}px`);
+                    const startfr = 600;
+                    const endfr = 0;
+                    let shrinkFactor = mapRange(focusOffset, startfr, endfr, 0, 1, 1, 0);
+                    bg.children[1].style.filter = `blur(${mapRange(focusOffset, startfr, endfr, 0.2, 0, 0.2, 0)}rem) brightness(${mapRange(focusOffset, startfr, endfr, 0.12, 1, .9, 0.12)})`;
+                    if (focusOffset > 0) {
+                        bg.children[1].style.position = "fixed";
+                        bg.children[1].style.left = `calc( (4rem + max(100vw - var(--max-width), 0px))/2 * ${shrinkFactor})`;             
+                        bg.children[1].style.top = `0`;
+                        console.log(`shrinkFactor: ${shrinkFactor}`);
+                        bg.children[1].style.height = mapRange(focusOffset, startfr, endfr, 
+                            Math.max(window.innerHeight, hwRatio * window.innerWidth), 
+                            hwRatio * (Math.min(window.innerWidth, parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--max-width'))) - 4*16), 
+                            Math.max(window.innerHeight, hwRatio * window.innerWidth), 
+                            hwRatio * (Math.min(window.innerWidth, parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--max-width'))) - 4*16), 
+                        ) + "px";
+                        bg.children[1].style.marginTop = mapRange(focusOffset, startfr, endfr,
+                            0,
+                            10,
+                            10,
+                            0
+                        ) + "rem";
+                        bg.children[2].style.marginTop = `10rem`;
+                        // bg.children[2].style.marginBottom = `7.7rem`;
+                        bg.children[2].style.height = `calc( ${hwRatio} * (min(var(--max-width), 100vw) - 4rem) )`;
+                        // bg.children[1].style.height = `calc( ${hwRatio} * (100vw - (4rem + max( (100vw - var(--max-width)), 0px) )* ${shrinkFactor}))`;
+
+                        bg.children[2].style.height = hwRatio * (Math.min(window.innerWidth, parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--max-width'))) - 4*16) + "px"; 
+                    } else {
+                        bg.children[1].style.position = "relative";
+                        bg.children[1].style.left = `0`;
+                        // bg.children[1].style.top = `calc(200px)`;
+                        bg.children[1].style.height = `calc( ${hwRatio} * (min(var(--max-width), 100vw) - 4rem) )`;
+
+                        bg.children[1].style.marginTop = `10rem`;
+
+                        bg.children[2].style.height = `0px`;
+                        bg.children[2].style.marginTop = `0px`;
+                        bg.children[2].style.marginBottom = `0px`;
+
+                        // bg.children[1].style.height = `0px`;
+                        // bg.children[1].style.marginTop = `0px`;
+                        // bg.children[1].style.marginBottom = `0px`;
+                    }
+                }
+            );
+        }
+
+    });
+
+    const siteVid = document.querySelector("#pet-adoption-video");
+
+
+
+    siteVid.addEventListener('click', () => {
+        window.open('https://pages.github.sfu.ca/bha86/235-p4-project/index.html', '_blank');
+    });
+}
+
+
+// DROPDOWN
+
+const dropDown = document.querySelector("#dropdown");
+const hamburger = document.querySelector(".hamburger");
+
+const overlay = document.createElement("div");
+overlay.classList.add("overlay");
+dropDown.append(overlay);
+overlay.addEventListener("click", () => {
+    updateDropdown(closed=true);
+    overlay.classList.remove("open-overlay");
+    setTimeout(() => {
+        dropDown.classList.remove("open");
+    }, 200);
+});
+
+// hamburger.append(document.createElement("a"));
+// hamburger.children[0].textContent = "Menu";
+// hamburger.children[0].classList.add("washAnimate");
+// hamburger.children[0].append(document.createElement("span"));
+// hamburger.children[0].children[0].classList.add("instanceColoring");
+
+
+let dropDownEnabled = false;
+
+function checkDropDown() {
+    if (window.innerWidth < 40*16 && !dropDownEnabled) {
+        dropDownEnabled = true;
+        dropDown.classList.add("dropdown");
+        for (let i = 1; i < dropDown.children[0].children.length; i++) {
+            dropDown.children[0].children[i].style.display = "none";
+        }
+    } else if (window.innerWidth >= 40*16 && dropDownEnabled){
+        dropDownEnabled = false;
+        dropDown.classList.remove("dropdown");
+        for (let i = 1; i < dropDown.children[0].children.length; i++) {
+            dropDown.children[0].children[i].style.display = "block";
+        }
+        dropDown.classList.remove("open");
+        overlay.classList.remove("open-overlay");
+        for (let i = 1; i < dropDown.children[0].children.length; i++) {
+            dropDown.children[0].children[i].classList.remove("openLi");
+
+        }
+    }
+}
+
+function updateDropdown(closed=false) {
+    setTimeout(() => {
+        for (let i = 1; i < dropDown.children[0].children.length; i++) {
+            setTimeout(() => {
+                if (dropDown.classList.contains("open") && !closed) {
+                    dropDown.children[0].children[i].classList.add("openLi");
+                } else {
+                    dropDown.children[0].children[i].classList.remove("openLi");
+                }
+            }, i*25);
+        }
+    }, 1);
+    setTimeout(() => {
+        for (let i = 1; i < dropDown.children[0].children.length; i++) {
+            if (!dropDown.classList.contains("open") || closed) {
+                dropDown.children[0].children[i].style.display = "none";
+            }
+        }
+    }, 200);
+}
+
+hamburger.addEventListener("click", () => {
+    if (dropDownEnabled) {
+        for (let i = 1; i < dropDown.children[0].children.length; i++) {
+            dropDown.children[0].children[i].style.display = "block";
+            dropDown.children[0].children[i].addEventListener("click", () => {
+                updateDropdown(closed=true);
+                overlay.classList.remove("open-overlay");
+                setTimeout(() => {
+                    dropDown.classList.remove("open");
+                }, 200);
+            });
+        }
+        overlay.classList.toggle("open-overlay");
+        if (dropDown.classList.contains("open")) {
+            updateDropdown(closed=true);
+            setTimeout(() => {
+                dropDown.classList.remove("open");
+            }, 500);
+        } else {
+            dropDown.classList.toggle("open");
+            updateDropdown();
+        }
+
+        
+    }
+});
+
+window.addEventListener("resize", () => {
+    checkDropDown();
+});
+
+window.addEventListener("load", () => {
+    checkDropDown();
+});
+
+// SELECTOR BARS
+
+const selectors = document.querySelectorAll(".image-select");
+
+function updateSelectorBox(selector, selected) {
+
+    // let maxSizeIndex = 0;
+    // let maxSize = 0;
+    // for (i = 0; i < selector.children.size-1; i++) {
+    //     let child = Array.from(selector.children)[i];
+    //     if (child.style.display == "none") {
+    //         child.style.display = "flex";
+
+    //         if (child.getBoundingClientRect().height > maxSize) {
+    //             maxSizeIndex = i;
+    //             maxSize = child.getBoundingClientRect().height;
+    //         }
+
+    //         child.style.display == "none"
+    //     } else {
+    //         if (child.getBoundingClientRect().height > maxSize) {
+    //             maxSizeIndex = i;
+    //             maxSize = child.getBoundingClientRect().height;
+    //         }
+    //     }
+
+    // }
+ 
+    selector.children[selected].style.width = "100%";
+    const currentWidth = selector.offsetWidth;
+
+    selector.style.width = 'auto';
+    selector.style.minWidth = "15rem";
+
+    let node;
+
+    const walker = document.createTreeWalker(
+        selector.children[selected],
+        NodeFilter.SHOW_TEXT,
+        null
+    );
+
+    node = walker.nextNode();
+
+    let range = document.createRange();
+    range.selectNodeContents(node);
+    let rect = range.getBoundingClientRect();
+    console.log(rect.width); 
+
+    selector.style.transition = 'none';
+    selector.style.minWidth = '0';
+    selector.style.width = currentWidth + 'px';
+    
+    selector.offsetHeight;
+    
+    selector.style.transition = '';
+    selector.style.width = rect.width + 'px';
+    selector.lastElementChild.style.width = rect.width + 'px';
+    selector.children[selected].style.width = rect.width + 'px';
+}
+
+
+function cycleSelector(item, selectorBars) {
+    selectorBars.forEach(
+        (otherItem) => {
+            if (item.parentElement.parentElement.getAttribute("for") === otherItem.parentElement.parentElement.getAttribute("for")) {
+                otherItem.classList.remove("active-bar");
+            }
+        }
+    );
+    item.classList.add("active-bar");
+    let targetImg = document.querySelector("#" +item.parentElement.parentElement.getAttribute("for"));
+    targetImg.src = item.getAttribute("img-src");
+
+    for (i = 0; i < item.parentElement.parentElement.children.length; i++) {
+        child = item.parentElement.parentElement.children[i];
+        if (child.classList.contains("visible")) {
+            child.classList.remove("visible");
+        }
+        console.log(item.getAttribute("opt"));
+        if (i == item.getAttribute("opt")) {
+            child.classList.add("visible");
+        }
+    }
+}
+
+selectors.forEach((selector)=> {
+    let selected = 0;
+
+    updateSelectorBox(selector, selected);
+    window.addEventListener("resize", () => {
+        updateSelectorBox(selector, selected);
+    });
+    window.addEventListener("load", () => {
+        updateSelectorBox(selector, selected);
+    });
+    window.addEventListener("click", () => {
+        setTimeout( () => {
+            updateSelectorBox(selector, selected);
+        }, 1);
+    })
+
+    const selectorBars = Array.from(selector.lastElementChild.children);
+
+    selectorBars.forEach(
+        (item) => {
+            item.addEventListener("click", () => {
+                selected = item.getAttribute("opt");
+                selectorBars.forEach(
+                    (otherItem) => {
+                        if (item.parentElement.parentElement.getAttribute("for") === otherItem.parentElement.parentElement.getAttribute("for")) {
+                            otherItem.classList.remove("active-bar");
+                        }
+                    }
+                );
+                item.classList.add("active-bar");
+                let targetImg = document.querySelector("#" +item.parentElement.parentElement.getAttribute("for"));
+                targetImg.src = item.getAttribute("img-src");
+
+                for (i = 0; i < item.parentElement.parentElement.children.length; i++) {
+                    child = item.parentElement.parentElement.children[i];
+                    if (child.classList.contains("visible")) {
+                        child.classList.remove("visible");
+                    }
+                    console.log(item.getAttribute("opt"));
+                    if (i == item.getAttribute("opt")) {
+                        child.classList.add("visible");
+                    }
+                }
+            });
+        }
+    );
+
+
+    // ANIMATED CYCLE!!!!
+    let selectedInpt = 0;
+
+    setInterval(() => {
+        const number = selectorBars.length;
+        selected = selectedInpt%number;
+        cycleSelector(selectorBars[selectedInpt%number], selectorBars);
+        selectedInpt ++;
+
+        setTimeout( () => {
+            updateSelectorBox(selector, selected);
+        }, 1);
+    }, 6000);
+});
+
+
+
+
