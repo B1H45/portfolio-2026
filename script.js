@@ -95,6 +95,12 @@ function customizeSite(target) {
             name = "1Password";
             resume = resumeLinks["GENERAL"];
             projectsOrdering = [1, 0, 2, 3, 4, 5];
+            break;  
+        case "netapp":
+            name = "NetApp";
+            resume = resumeLinks["GENERAL"];
+            projectsOrdering = [1, 0, 2, 3, 4, 5];
+            message = "You've found a UX Designer who creates evidence-based and human-centered designs.";
             break;            
         default:
             resume = resumeLinks["GENERAL"];
