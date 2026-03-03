@@ -101,7 +101,13 @@ function customizeSite(target) {
             resume = resumeLinks["GENERAL"];
             projectsOrdering = [1, 0, 2, 3, 4, 5];
             message = "You've found a UX Designer who creates evidence-based and human-centered designs.";
-            break;            
+            break;
+        case "gr":
+            name = "Global Relay";
+            resume = resumeLinks["GENERAL"];
+            projectsOrdering = [2, 1, 0, 3, 4, 5];
+            message = "You've found a UX Designer who's passionate about creating evidence-based and human-centered designs.";
+            break;              
         default:
             resume = resumeLinks["GENERAL"];
             projectsOrdering = [0, 1, 2, 3, 4, 5];
